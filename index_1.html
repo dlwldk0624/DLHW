@@ -4,74 +4,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Treasure Vocabulary Adventure</title>
+<title>Get Ready With Mina - Vocabulary Mission</title>
 
 <style>
+
+/* =========================
+   GLOBAL
+========================= */
+
 * {
     box-sizing: border-box;
 }
 
 :root {
-    --dark: #17233b;
-    --navy: #263c63;
-    --blue: #4669a8;
-    --gold: #e0aa34;
-    --light-gold: #fff3c4;
-    --brown: #754c2d;
-    --dark-brown: #4a2e1c;
-    --green: #33865d;
-    --red: #b94b4b;
-    --cream: #fffaf0;
-    --text: #293447;
+    --pink: #f18ba8;
+    --deep-pink: #d8668a;
+    --soft-pink: #fff0f5;
+    --cream: #fffaf7;
+    --purple: #876da8;
+    --dark: #3d3445;
+    --gray: #77717d;
+    --green: #3c956c;
+    --light-green: #e8f8ef;
+    --red: #ba4b60;
+    --light-red: #fff0f2;
+    --border: #ecdce3;
+    --gold: #d8a84d;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, "Noto Sans KR", sans-serif;
-    color: var(--text);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
     background:
-        radial-gradient(circle at top, #344b71 0%, #17233b 55%, #0e1626 100%);
+        radial-gradient(circle at top left, #ffe7ef, transparent 35%),
+        radial-gradient(circle at bottom right, #efe6ff, transparent 35%),
+        #fff9fb;
+
+    color: var(--dark);
 }
+
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 
 .app {
     width: 100%;
-    max-width: 820px;
-    margin: auto;
-    padding: 28px 18px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 18px 70px;
 }
-
-/* HEADER */
 
 header {
     text-align: center;
-    color: white;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 header h1 {
     margin: 0;
     font-size: 34px;
+    color: #c95f82;
 }
 
 header p {
-    opacity: 0.85;
     margin-top: 8px;
+    color: var(--gray);
 }
 
-/* MAIN CARD */
-
-.card {
-    background: rgba(255, 250, 240, 0.98);
-    border: 3px solid #c99a41;
-    border-radius: 22px;
+.main-card {
+    background: rgba(255,255,255,0.95);
+    border: 2px solid #f3dce5;
+    border-radius: 24px;
     padding: 30px;
     box-shadow:
-        0 14px 40px rgba(0,0,0,0.35),
-        inset 0 0 0 4px rgba(255,255,255,0.3);
+        0 12px 35px rgba(117, 72, 91, 0.12);
 }
-
-/* SCREENS */
 
 .screen {
     display: none;
@@ -81,477 +100,822 @@ header p {
     display: block;
 }
 
-/* STORY */
 
-.story {
+/* =========================
+   STORY
+========================= */
+
+.story-area {
     text-align: center;
 }
 
 .story-icon {
     font-size: 65px;
-    margin-bottom: 8px;
 }
 
-.story h2 {
-    color: var(--dark-brown);
-    margin-bottom: 10px;
+.story-area h2 {
+    color: #b85d7c;
 }
 
 .story-box {
-    background: #fff6da;
-    border: 2px dashed #c79a49;
+    background: #fff4f7;
+    border: 2px dashed #efa9bc;
+    border-radius: 16px;
     padding: 18px;
-    border-radius: 14px;
-    margin: 20px 0;
-    line-height: 1.7;
+    line-height: 1.8;
+    margin: 20px 0 28px;
 }
 
-/* LEVEL SELECTION */
+
+/* =========================
+   LEVEL SELECTION
+========================= */
 
 .level-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 22px;
+    gap: 15px;
 }
 
 .level-button {
-    border: 2px solid #d8c49d;
-    background: #fffdf7;
-    border-radius: 16px;
-    padding: 20px 12px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 13px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .level-button:hover {
     transform: translateY(-4px);
-    border-color: var(--gold);
-    background: #fff7d9;
+    border-color: var(--pink);
+    background: #fff6f9;
 }
 
 .level-icon {
-    font-size: 32px;
+    font-size: 36px;
 }
 
 .level-name {
     margin-top: 7px;
     font-size: 18px;
-    font-weight: bold;
-    color: var(--dark-brown);
+    font-weight: 800;
+    color: #bd6381;
 }
 
 .level-description {
-    margin-top: 5px;
+    margin-top: 6px;
     color: #777;
     font-size: 13px;
 }
 
-/* TREASURE CHEST */
 
-.chest-area {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.chest {
-    width: 220px;
-    height: 150px;
-    margin: 15px auto;
-    position: relative;
-}
-
-.chest-lid {
-    width: 200px;
-    height: 65px;
-    position: absolute;
-    left: 10px;
-    top: 5px;
-    border: 8px solid var(--dark-brown);
-    border-bottom: 6px solid #4a2e1c;
-    border-radius: 85px 85px 8px 8px;
-    background:
-        linear-gradient(
-            90deg,
-            #8c572d 0%,
-            #b97938 22%,
-            #8c572d 45%,
-            #b97938 70%,
-            #8c572d 100%
-        );
-    transform-origin: bottom center;
-    transition: transform 1s ease, top 1s ease;
-    z-index: 3;
-}
-
-.chest-body {
-    width: 200px;
-    height: 90px;
-    position: absolute;
-    left: 10px;
-    bottom: 0;
-    border: 8px solid var(--dark-brown);
-    border-radius: 8px 8px 16px 16px;
-    background:
-        linear-gradient(
-            90deg,
-            #825029 0%,
-            #b97938 20%,
-            #825029 42%,
-            #b97938 68%,
-            #825029 100%
-        );
-    z-index: 2;
-}
-
-.chest-band {
-    position: absolute;
-    width: 28px;
-    height: 100%;
-    left: 86px;
-    top: 0;
-    background: #d6a730;
-    border-left: 4px solid #9d7421;
-    border-right: 4px solid #9d7421;
-}
-
-.chest-lock {
-    position: absolute;
-    width: 42px;
-    height: 42px;
-    left: 79px;
-    top: 18px;
-    border-radius: 7px;
-    background: #f0bf3e;
-    border: 5px solid #9e7420;
-    z-index: 5;
-}
-
-.chest.open .chest-lid {
-    transform: rotateX(135deg);
-    top: -45px;
-}
-
-/* QUIZ */
+/* =========================
+   QUIZ
+========================= */
 
 .quiz-top {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
 }
 
 .badge {
-    background: #f1e3b5;
-    color: #604416;
     padding: 6px 12px;
+    background: #fff0f5;
+    color: #ad5675;
     border-radius: 999px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
-.progress-bar {
-    width: 100%;
+.progress-background {
     height: 11px;
-    background: #e7dfce;
-    border-radius: 20px;
+    background: #f1e3e9;
+    border-radius: 999px;
     overflow: hidden;
     margin-bottom: 28px;
 }
 
-.progress {
+.progress-bar {
     width: 20%;
     height: 100%;
-    background: linear-gradient(90deg, #c18b20, #f1c95b);
-    transition: width 0.3s;
+    background:
+        linear-gradient(
+            90deg,
+            #f18ba8,
+            #d685b5
+        );
+
+    transition: width 0.35s ease;
 }
 
 .question-number {
     text-align: center;
-    color: #86775e;
+    color: #8a7d86;
+    font-size: 14px;
 }
 
-.word {
-    font-size: 45px;
+.question-word {
     text-align: center;
-    font-weight: 800;
-    color: var(--navy);
-    margin: 15px 0;
+    color: #98609f;
+    font-size: 46px;
+    font-weight: 900;
+    margin: 12px 0;
 }
 
 .question-text {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-input[type="text"] {
+.answer-input {
     width: 100%;
-    border: 2px solid #d7cbb3;
-    border-radius: 12px;
     padding: 15px;
-    font-size: 17px;
+    border-radius: 13px;
+    border: 2px solid #e9d6df;
     outline: none;
+    font-size: 17px;
 }
 
-input[type="text"]:focus {
-    border-color: var(--gold);
+.answer-input:focus {
+    border-color: var(--pink);
 }
-
-/* BUTTON */
 
 button {
     font-family: inherit;
 }
 
-.main-button,
-.secondary-button,
-.treasure-button {
+.main-button {
     width: 100%;
     border: none;
-    border-radius: 12px;
+    border-radius: 13px;
     padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.main-button {
-    background: var(--navy);
-    color: white;
     margin-top: 14px;
+    background: var(--deep-pink);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
 }
 
 .main-button:hover {
-    background: #172b4d;
+    background: #c75379;
+    transform: translateY(-1px);
+}
+
+.next-button {
+    display: none;
+    width: 100%;
+    border: none;
+    border-radius: 13px;
+    padding: 14px;
+    margin-top: 14px;
+    background: #826ca5;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 .secondary-button {
-    background: #e8e2d6;
-    color: #4d4437;
-    margin-top: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 13px;
+    padding: 13px;
+    margin-top: 11px;
+    background: #eee8ed;
+    color: #625561;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.treasure-button {
-    background: linear-gradient(135deg, #d89b20, #f4d161);
-    color: #49330e;
-    margin-top: 18px;
-    box-shadow: 0 5px 12px rgba(172, 119, 13, 0.3);
-}
 
-.treasure-button:hover {
-    transform: translateY(-2px);
-}
-
-/* FEEDBACK */
+/* =========================
+   FEEDBACK
+========================= */
 
 .feedback {
     display: none;
     margin-top: 16px;
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 11px;
     text-align: center;
 }
 
 .feedback.correct {
     display: block;
-    background: #e7f7ed;
-    color: #246742;
+    background: var(--light-green);
+    color: #246c4a;
 }
 
 .feedback.incorrect {
     display: block;
-    background: #fff0f0;
-    color: #a43d3d;
+    background: var(--light-red);
+    color: var(--red);
 }
 
-/* RESULTS */
+
+/* =========================
+   TOOL REWARD
+========================= */
+
+.reward {
+    display: none;
+    text-align: center;
+    margin-top: 17px;
+    padding: 14px;
+    border-radius: 13px;
+    background: #fff6d9;
+    color: #74581b;
+    border: 1px solid #f0d48e;
+}
+
+.reward.show {
+    display: block;
+    animation: rewardPop .45s ease;
+}
+
+.reward-icon {
+    font-size: 35px;
+}
+
+@keyframes rewardPop {
+
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   MAKEUP TOOL COLLECTION
+========================= */
+
+.tool-collection {
+    margin-top: 28px;
+    border-top: 1px solid #eee0e6;
+    padding-top: 18px;
+}
+
+.tool-collection h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tool {
+    background: #f2eef1;
+    color: #aaa0a6;
+    border-radius: 999px;
+    padding: 7px 11px;
+    font-size: 13px;
+}
+
+.tool.unlocked {
+    background: #fff0c7;
+    color: #765919;
+    border: 1px solid #e5c66d;
+}
+
+
+/* =========================
+   FLOATING GIRL
+========================= */
+
+.girl-panel {
+    display: none;
+
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+
+    width: 230px;
+    padding: 14px;
+
+    background:
+        rgba(255,255,255,.96);
+
+    border: 2px solid #f0d8e2;
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(93, 60, 77, .22);
+
+    z-index: 50;
+
+    text-align: center;
+}
+
+.girl-panel.visible {
+    display: block;
+}
+
+.girl-title {
+    font-size: 13px;
+    color: #a4677e;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.girl-status {
+    font-size: 12px;
+    color: #7f747b;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   GIRL ILLUSTRATION
+========================= */
+
+.girl {
+    position: relative;
+    width: 160px;
+    height: 195px;
+    margin: auto;
+}
+
+
+/* HAIR BACK */
+
+.hair-back {
+    position: absolute;
+    left: 17px;
+    top: 10px;
+    width: 126px;
+    height: 155px;
+    background: #49312d;
+    border-radius: 65px 65px 48px 48px;
+}
+
+
+/* NECK */
+
+.neck {
+    position: absolute;
+    width: 34px;
+    height: 40px;
+    left: 63px;
+    top: 130px;
+    background: #f3c3ad;
+    border-radius: 10px;
+}
+
+
+/* BODY */
+
+.body-shape {
+    position: absolute;
+    width: 116px;
+    height: 62px;
+    left: 22px;
+    bottom: 0;
+    background: #ecd6ef;
+    border-radius: 55px 55px 12px 12px;
+}
+
+
+/* FACE */
+
+.face {
+    position: absolute;
+    left: 38px;
+    top: 29px;
+    width: 84px;
+    height: 111px;
+
+    background: #efc0aa;
+
+    border-radius:
+        48% 48% 44% 44% /
+        42% 42% 58% 58%;
+
+    transition: .4s;
+    z-index: 3;
+}
+
+
+/* FRINGE */
+
+.fringe {
+    position: absolute;
+    left: 32px;
+    top: 11px;
+    width: 96px;
+    height: 58px;
+    background: #49312d;
+    border-radius: 55px 55px 35px 35px;
+    z-index: 5;
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 55%,
+            80% 44%,
+            69% 78%,
+            55% 49%,
+            40% 80%,
+            25% 48%,
+            0 65%
+        );
+}
+
+
+/* EYES */
+
+.eye {
+    position: absolute;
+    width: 15px;
+    height: 8px;
+    top: 48px;
+    border-bottom: 3px solid #493d3f;
+    border-radius: 50%;
+    z-index: 8;
+}
+
+.eye.left {
+    left: 16px;
+}
+
+.eye.right {
+    right: 16px;
+}
+
+
+/* PUPILS */
+
+.pupil {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #45383a;
+    border-radius: 50%;
+    bottom: -1px;
+    left: 5px;
+}
+
+
+/* EYEBROWS */
+
+.eyebrow {
+    position: absolute;
+    top: 38px;
+    width: 19px;
+    height: 4px;
+    border-radius: 100%;
+    background: rgba(75,48,42,.28);
+    transition: .4s;
+}
+
+.eyebrow.left {
+    left: 13px;
+    transform: rotate(-4deg);
+}
+
+.eyebrow.right {
+    right: 13px;
+    transform: rotate(4deg);
+}
+
+
+/* EYESHADOW */
+
+.eyeshadow {
+    position: absolute;
+    width: 22px;
+    height: 10px;
+    top: 43px;
+    border-radius: 50%;
+    background: rgba(186,113,165,0);
+    transition: .4s;
+}
+
+.eyeshadow.left {
+    left: 11px;
+}
+
+.eyeshadow.right {
+    right: 11px;
+}
+
+
+/* BLUSH */
+
+.blush {
+    position: absolute;
+    width: 20px;
+    height: 11px;
+    top: 69px;
+    border-radius: 50%;
+    background: rgba(236,102,132,0);
+    filter: blur(2px);
+    transition: .4s;
+}
+
+.blush.left {
+    left: 8px;
+}
+
+.blush.right {
+    right: 8px;
+}
+
+
+/* NOSE */
+
+.nose {
+    position: absolute;
+    left: 39px;
+    top: 62px;
+    width: 6px;
+    height: 9px;
+    border-right: 2px solid rgba(156,91,72,.35);
+    border-bottom: 2px solid rgba(156,91,72,.25);
+    border-radius: 50%;
+}
+
+
+/* LIPS */
+
+.lips {
+    position: absolute;
+    left: 31px;
+    top: 84px;
+    width: 23px;
+    height: 9px;
+    background: #bb7776;
+    border-radius: 50% 50% 55% 55%;
+    transition: .4s;
+}
+
+
+/* EARRINGS */
+
+.earring {
+    position: absolute;
+    width: 6px;
+    height: 9px;
+    background: #e7bd49;
+    border-radius: 50%;
+    top: 73px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.earring.left {
+    left: -3px;
+}
+
+.earring.right {
+    right: -3px;
+}
+
+
+/* =========================
+   MAKEUP STAGES
+========================= */
+
+/* FOUNDATION */
+
+.girl.makeup-1 .face,
+.girl.makeup-2 .face,
+.girl.makeup-3 .face,
+.girl.makeup-4 .face,
+.girl.makeup-5 .face {
+    background: #f6cbb9;
+    box-shadow:
+        inset 0 0 15px rgba(255,255,255,.25);
+}
+
+
+/* BROWS */
+
+.girl.makeup-2 .eyebrow,
+.girl.makeup-3 .eyebrow,
+.girl.makeup-4 .eyebrow,
+.girl.makeup-5 .eyebrow {
+    background: #5b3732;
+    height: 5px;
+}
+
+
+/* EYESHADOW */
+
+.girl.makeup-3 .eyeshadow,
+.girl.makeup-4 .eyeshadow,
+.girl.makeup-5 .eyeshadow {
+    background:
+        rgba(195,113,173,.45);
+}
+
+
+/* BLUSH */
+
+.girl.makeup-4 .blush,
+.girl.makeup-5 .blush {
+    background:
+        rgba(239,102,137,.42);
+}
+
+
+/* FULL MAKEUP */
+
+.girl.makeup-5 .lips {
+    background: #cc4168;
+    height: 11px;
+    box-shadow:
+        0 2px 3px rgba(168,44,77,.18);
+}
+
+.girl.makeup-5 .eye {
+    border-bottom-width: 4px;
+}
+
+.girl.makeup-5 .earring {
+    opacity: 1;
+}
+
+
+/* =========================
+   MESSY ENDING
+========================= */
+
+.girl.messy .eyeshadow.left {
+    transform: rotate(10deg) translateY(2px);
+}
+
+.girl.messy .eyeshadow.right {
+    opacity: .45;
+}
+
+.girl.messy .blush.left {
+    transform: scale(1.45);
+}
+
+.girl.messy .blush.right {
+    transform: scale(.75);
+}
+
+.girl.messy .lips {
+    transform:
+        rotate(-8deg)
+        translateX(2px);
+}
+
+
+/* =========================
+   RESULTS
+========================= */
 
 .result {
     text-align: center;
 }
 
-.score-circle {
+.result-score {
     width: 145px;
     height: 145px;
-    border-radius: 50%;
-    margin: 22px auto;
+    margin: 24px auto;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background: #fff0bc;
-    border: 6px solid #dfae35;
-    color: #684914;
+
+    border-radius: 50%;
+
+    background: #fff0f5;
+    border: 6px solid #e58aa7;
+
+    color: #ab5874;
 }
 
-.score-number {
-    font-size: 42px;
-    font-weight: bold;
+.result-score strong {
+    font-size: 43px;
 }
 
-.key {
-    font-size: 90px;
-    margin: 10px;
-    animation: keyFloat 1.4s ease-in-out infinite alternate;
+.final-girl-wrapper {
+    width: 275px;
+    min-height: 300px;
+    margin: 20px auto;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff5f8,
+            #f5ecff
+        );
+
+    border-radius: 25px;
+    padding: 25px 15px;
+
+    border: 2px solid #edd9e3;
 }
 
-@keyframes keyFloat {
-    from {
-        transform: translateY(0) rotate(-7deg);
-    }
-    to {
-        transform: translateY(-10px) rotate(7deg);
-    }
+.final-girl-wrapper .girl {
+    transform: scale(1.35);
+    transform-origin: top center;
+    margin-bottom: 60px;
 }
 
-.failure-icon {
-    font-size: 65px;
+.result-title-success {
+    color: #cc5b80;
+    font-size: 28px;
 }
 
-/* TREASURE */
-
-#treasureContent {
-    display: none;
+.result-title-fail {
+    color: #877080;
 }
 
-.treasure-pile {
-    position: relative;
-    min-height: 190px;
-    margin-top: -15px;
-    font-size: 58px;
-    text-align: center;
-    animation: treasureAppear 0.9s ease;
+.result-description {
+    color: #70636d;
+    line-height: 1.7;
 }
 
-.coin {
-    display: inline-block;
-    animation: sparkle 1.2s infinite alternate;
-}
-
-.coin:nth-child(2) {
-    animation-delay: .2s;
-}
-
-.coin:nth-child(3) {
-    animation-delay: .4s;
-}
-
-.coin:nth-child(4) {
-    animation-delay: .6s;
-}
-
-@keyframes treasureAppear {
-    from {
-        opacity: 0;
-        transform: scale(.4) translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-@keyframes sparkle {
-    from {
-        transform: translateY(0) scale(1);
-    }
-    to {
-        transform: translateY(-7px) scale(1.12);
-    }
-}
-
-.congratulations {
-    display: none;
-    font-size: 40px;
-    font-weight: 900;
-    color: #b07809;
-    margin: 20px 0 5px;
-    animation: pop 0.7s ease;
-}
-
-@keyframes pop {
-    0% {
-        transform: scale(0);
-    }
-    70% {
-        transform: scale(1.15);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.final-message {
-    display: none;
-    color: #625130;
-}
 
 /* CONFETTI */
 
 .confetti-container {
-    pointer-events: none;
     position: fixed;
     inset: 0;
+    pointer-events: none;
     overflow: hidden;
-    z-index: 999;
+    z-index: 100;
 }
 
 .confetti {
     position: absolute;
-    top: -20px;
+    top: -30px;
     font-size: 22px;
-    animation: fall 3s linear forwards;
+    animation: fall 3.5s linear forwards;
 }
 
 @keyframes fall {
+
     to {
-        transform: translateY(110vh) rotate(720deg);
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
         opacity: 0;
     }
+
 }
 
-/* REVIEW */
 
-.review-area {
-    margin-top: 20px;
-    text-align: left;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.review-item {
-    background: #f8f2e4;
-    border-radius: 10px;
-    padding: 11px 14px;
-    margin-top: 8px;
-}
-
-.review-word {
-    font-weight: bold;
-    color: var(--navy);
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 600px) {
-
-    .card {
-        padding: 20px;
-    }
+@media (max-width: 720px) {
 
     .level-container {
         grid-template-columns: 1fr;
     }
 
-    .word {
-        font-size: 36px;
+    .girl-panel {
+        right: 8px;
+        bottom: 8px;
+        width: 165px;
+        padding: 8px;
+    }
+
+    .girl-panel .girl {
+        transform: scale(.78);
+        transform-origin: top center;
+        margin-bottom: -40px;
+    }
+
+    .girl-status {
+        font-size: 10px;
+    }
+
+    .main-card {
+        padding: 20px;
+    }
+
+    .question-word {
+        font-size: 38px;
     }
 
     header h1 {
         font-size: 27px;
-    }
-
-    .congratulations {
-        font-size: 31px;
     }
 }
 
@@ -561,80 +925,149 @@ button {
 
 <body>
 
-<div class="confetti-container" id="confettiContainer"></div>
+<div
+    class="confetti-container"
+    id="confettiContainer">
+</div>
+
+
+<!-- =========================
+     FLOATING CHARACTER
+========================= -->
+
+<div
+    class="girl-panel"
+    id="girlPanel">
+
+    <div class="girl-title">
+        Mina's Makeup
+    </div>
+
+    <div
+        class="girl-status"
+        id="girlStatus">
+
+        No makeup tools yet!
+
+    </div>
+
+
+    <div
+        class="girl"
+        id="girl">
+
+        <div class="hair-back"></div>
+
+        <div class="neck"></div>
+
+        <div class="body-shape"></div>
+
+        <div class="face">
+
+            <div class="eyebrow left"></div>
+            <div class="eyebrow right"></div>
+
+            <div class="eyeshadow left"></div>
+            <div class="eyeshadow right"></div>
+
+            <div class="eye left">
+                <div class="pupil"></div>
+            </div>
+
+            <div class="eye right">
+                <div class="pupil"></div>
+            </div>
+
+            <div class="blush left"></div>
+            <div class="blush right"></div>
+
+            <div class="nose"></div>
+
+            <div class="lips"></div>
+
+            <div class="earring left"></div>
+            <div class="earring right"></div>
+
+        </div>
+
+        <div class="fringe"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN APP
+========================= -->
 
 <div class="app">
 
 <header>
-    <h1>🗺️ Treasure Vocabulary Adventure</h1>
-    <p>Solve the vocabulary mission and earn the key!</p>
+
+    <h1>
+        💄 Get Ready With Mina
+    </h1>
+
+    <p>
+        Vocabulary Makeup Mission
+    </p>
+
 </header>
 
 
-<div class="card">
+<div class="main-card">
 
-<!-- ================================
+
+<!-- =========================
      LEVEL SCREEN
-================================ -->
+========================= -->
 
-<section id="levelScreen" class="screen active">
+<section
+    id="levelScreen"
+    class="screen active">
 
-    <div class="story">
+    <div class="story-area">
 
         <div class="story-icon">
-            🗺️
+            ⏰💄
         </div>
 
-        <h2>You Found a Treasure Map!</h2>
+        <h2>
+            Mina needs to get ready!
+        </h2>
+
 
         <div class="story-box">
 
-            깊은 숲속을 탐험하던 당신은
-            오래된 보물지도를 발견했습니다.
+            오늘 아침, Mina는 외출 준비를 해야 합니다.
 
             <br><br>
 
-            지도를 따라가자 커다란
-            <strong>보물상자</strong>가 나타났지만,
-            상자는 단단히 잠겨 있습니다.
+            그런데 문제가 생겼어요!
+
+            <br>
+
+            <strong>
+                Mina의 메이크업 도구가 모두 사라졌습니다.
+            </strong>
 
             <br><br>
 
-            🔐 보물상자를 열기 위해서는
-            <strong>Vocabulary Mission</strong>을 통과하여
-            열쇠를 얻어야 합니다!
+            영어 단어 문제를 하나 맞힐 때마다
+            메이크업 도구를 하나씩 얻을 수 있습니다.
 
             <br><br>
 
-            <strong>5문제 중 4문제 이상</strong>을 맞히면
-            열쇠를 얻을 수 있습니다.
-
-        </div>
-
-        <div class="chest-area">
-
-            <div class="chest">
-
-                <div class="chest-lid">
-                    <div class="chest-band"></div>
-                </div>
-
-                <div class="chest-body">
-
-                    <div class="chest-band"></div>
-
-                    <div class="chest-lock">
-                        🔒
-                    </div>
-
-                </div>
-
-            </div>
+            총 <strong>5개의 단어</strong>를 모두 맞히면
+            Mina의 풀메이크업이 완성됩니다!
 
         </div>
 
 
-        <h2>Choose Your Level</h2>
+        <h2>
+            Choose Your English Level
+        </h2>
 
         <p>
             자신의 영어 실력에 맞는 난이도를 선택하세요.
@@ -645,18 +1078,21 @@ button {
 
     <div class="level-container">
 
+
         <button
             class="level-button"
             onclick="startQuiz('beginner')">
 
-            <div class="level-icon">🌱</div>
+            <div class="level-icon">
+                🌱
+            </div>
 
             <div class="level-name">
                 Beginner
             </div>
 
             <div class="level-description">
-                기본적인 일상 영어 단어
+                기본적인 일상 어휘
             </div>
 
         </button>
@@ -666,14 +1102,16 @@ button {
             class="level-button"
             onclick="startQuiz('intermediate')">
 
-            <div class="level-icon">🌿</div>
+            <div class="level-icon">
+                🌿
+            </div>
 
             <div class="level-name">
                 Intermediate
             </div>
 
             <div class="level-description">
-                학교·일상에서 자주 쓰이는 어휘
+                학교와 일상에서 자주 사용하는 어휘
             </div>
 
         </button>
@@ -683,7 +1121,9 @@ button {
             class="level-button"
             onclick="startQuiz('advanced')">
 
-            <div class="level-icon">🌳</div>
+            <div class="level-icon">
+                🌳
+            </div>
 
             <div class="level-name">
                 Advanced
@@ -695,38 +1135,44 @@ button {
 
         </button>
 
+
     </div>
 
 </section>
 
 
-<!-- ================================
+<!-- =========================
      QUIZ SCREEN
-================================ -->
+========================= -->
 
-<section id="quizScreen" class="screen">
+<section
+    id="quizScreen"
+    class="screen">
+
 
     <div class="quiz-top">
 
-        <span class="badge" id="levelDisplay">
+        <span
+            class="badge"
+            id="levelDisplay">
         </span>
 
-        <span class="badge">
-            🔑 Key Requirement: 4 / 5
-        </span>
+        <span
+            class="badge"
+            id="scoreDisplay">
 
-        <span class="badge" id="scoreDisplay">
-            Score: 0
+            Makeup Tools: 0 / 5
+
         </span>
 
     </div>
 
 
-    <div class="progress-bar">
+    <div class="progress-background">
 
         <div
-            class="progress"
-            id="progress">
+            class="progress-bar"
+            id="progressBar">
         </div>
 
     </div>
@@ -742,7 +1188,7 @@ button {
 
 
     <div
-        class="word"
+        class="question-word"
         id="questionWord">
 
         apple
@@ -757,7 +1203,7 @@ button {
         <br>
 
         <small>
-            이 단어의 한국어 의미를 입력하세요.
+            영어 단어의 한국어 의미를 입력하세요.
         </small>
 
     </div>
@@ -765,6 +1211,7 @@ button {
 
     <input
         type="text"
+        class="answer-input"
         id="answerInput"
         placeholder="한국어 뜻을 입력하세요"
         autocomplete="off"
@@ -774,6 +1221,28 @@ button {
     <div
         class="feedback"
         id="feedback">
+    </div>
+
+
+    <div
+        class="reward"
+        id="reward">
+
+        <div
+            class="reward-icon"
+            id="rewardIcon">
+        </div>
+
+        <strong
+            id="rewardName">
+        </strong>
+
+        <br>
+
+        <span>
+            Makeup tool unlocked!
+        </span>
+
     </div>
 
 
@@ -788,231 +1257,174 @@ button {
 
 
     <button
-        class="treasure-button"
+        class="next-button"
         id="nextButton"
-        onclick="nextQuestion()"
-        style="display:none;">
+        onclick="nextQuestion()">
 
-        Next Question →
+        Next Word →
 
     </button>
 
-</section>
 
+    <div class="tool-collection">
 
-<!-- ================================
-     RESULT SCREEN
-================================ -->
+        <h3>
+            👜 Mina's Makeup Bag
+        </h3>
 
-<section id="resultScreen" class="screen">
+        <div class="tools">
 
-    <div class="result">
+            <span
+                class="tool"
+                id="tool0">
 
-        <h2>
-            Vocabulary Mission Complete!
-        </h2>
+                🧴 Foundation
 
+            </span>
 
-        <div class="score-circle">
+            <span
+                class="tool"
+                id="tool1">
 
-            <div
-                class="score-number"
-                id="finalScore">
-                0
-            </div>
+                ✏️ Eyebrow Pencil
 
-            <div>
-                / 5
-            </div>
+            </span>
 
-        </div>
+            <span
+                class="tool"
+                id="tool2">
 
+                🎨 Eyeshadow
 
-        <div id="successResult">
+            </span>
 
-            <div class="key">
-                🗝️
-            </div>
+            <span
+                class="tool"
+                id="tool3">
 
-            <h2>
-                You earned the key!
-            </h2>
+                🌸 Blush
 
-            <p>
-                4문제 이상을 맞혀
-                보물상자를 열 수 있는 열쇠를 획득했습니다.
-            </p>
+            </span>
 
-            <button
-                class="treasure-button"
-                onclick="goToTreasure()">
+            <span
+                class="tool"
+                id="tool4">
 
-                🗝️ Take the Key to the Treasure Chest
+                💄 Lipstick
 
-            </button>
+            </span>
 
         </div>
-
-
-        <div id="failResult">
-
-            <div class="failure-icon">
-                🔒
-            </div>
-
-            <h2>
-                The chest is still locked!
-            </h2>
-
-            <p>
-                열쇠를 얻으려면
-                <strong>5문제 중 4문제 이상</strong>을
-                맞혀야 합니다.
-            </p>
-
-            <button
-                class="main-button"
-                onclick="restartSameLevel()">
-
-                🔄 Try the Mission Again
-
-            </button>
-
-        </div>
-
-
-        <div class="review-area">
-
-            <h3>
-                📖 Word Review
-            </h3>
-
-            <div id="reviewArea">
-            </div>
-
-        </div>
-
-
-        <button
-            class="secondary-button"
-            onclick="chooseNewLevel()">
-
-            Choose Another Level
-
-        </button>
 
     </div>
 
 </section>
 
 
-<!-- ================================
-     TREASURE SCREEN
-================================ -->
+<!-- =========================
+     RESULT SCREEN
+========================= -->
 
-<section id="treasureScreen" class="screen">
+<section
+    id="resultScreen"
+    class="screen">
 
-    <div class="story">
+    <div class="result">
 
-        <h2>
-            🗝️ You Have the Key!
-        </h2>
+        <div
+            class="result-score">
 
-        <div class="story-box">
+            <strong
+                id="finalScore">
 
-            Vocabulary Mission을 성공하여
-            드디어 보물상자의 열쇠를 얻었습니다.
+                0
 
-            <br><br>
+            </strong>
 
-            아래 버튼을 눌러
-            보물상자를 열어보세요!
+            <span>
+                / 5 words
+            </span>
 
         </div>
 
 
-        <div class="chest-area">
+        <h2
+            id="resultTitle">
+        </h2>
+
+
+        <p
+            class="result-description"
+            id="resultDescription">
+        </p>
+
+
+        <div class="final-girl-wrapper">
 
             <div
-                class="chest"
-                id="finalChest">
+                class="girl"
+                id="finalGirl">
 
-                <div class="chest-lid">
-                    <div class="chest-band"></div>
-                </div>
+                <div class="hair-back"></div>
 
-                <div class="chest-body">
+                <div class="neck"></div>
 
-                    <div class="chest-band"></div>
+                <div class="body-shape"></div>
 
-                    <div
-                        class="chest-lock"
-                        id="finalLock">
+                <div class="face">
 
-                        🔒
+                    <div class="eyebrow left"></div>
+                    <div class="eyebrow right"></div>
 
+                    <div class="eyeshadow left"></div>
+                    <div class="eyeshadow right"></div>
+
+                    <div class="eye left">
+                        <div class="pupil"></div>
                     </div>
 
-                </div>
+                    <div class="eye right">
+                        <div class="pupil"></div>
+                    </div>
 
-            </div>
+                    <div class="blush left"></div>
+                    <div class="blush right"></div>
 
+                    <div class="nose"></div>
 
-            <div id="treasureContent">
+                    <div class="lips"></div>
 
-                <div class="treasure-pile">
-
-                    <span class="coin">🪙</span>
-                    <span class="coin">💰</span>
-                    <span class="coin">💎</span>
-                    <span class="coin">👑</span>
-
-                    <br>
-
-                    🪙 💎 🪙 💰 💎
+                    <div class="earring left"></div>
+                    <div class="earring right"></div>
 
                 </div>
 
-            </div>
-
-
-            <div
-                class="congratulations"
-                id="congratulations">
-
-                Congratulations!
+                <div class="fringe"></div>
 
             </div>
 
+        </div>
 
-            <p
-                class="final-message"
-                id="finalMessage">
 
-                You completed the Vocabulary Treasure Adventure!
-
-            </p>
-
+        <div
+            id="finalToolMessage">
         </div>
 
 
         <button
-            class="treasure-button"
-            id="openChestButton"
-            onclick="openTreasureChest()">
+            class="main-button"
+            onclick="restartSameLevel()">
 
-            🗝️ Open the Treasure Chest!
+            🔄 Try Again
 
         </button>
 
 
         <button
             class="secondary-button"
-            id="playAgainButton"
-            onclick="chooseNewLevel()"
-            style="display:none;">
+            onclick="chooseLevel()">
 
-            Play Again
+            Choose Another Level
 
         </button>
 
@@ -1027,9 +1439,9 @@ button {
 
 <script>
 
-/* =====================================
-   VOCABULARY DATA
-===================================== */
+/* =========================
+   VOCABULARY
+========================= */
 
 const vocabulary = {
 
@@ -1041,13 +1453,13 @@ const vocabulary = {
         },
 
         {
-            word: "school",
-            meanings: ["학교"]
+            word: "teacher",
+            meanings: ["선생님", "교사"]
         },
 
         {
-            word: "teacher",
-            meanings: ["선생님", "교사"]
+            word: "school",
+            meanings: ["학교"]
         },
 
         {
@@ -1056,8 +1468,8 @@ const vocabulary = {
         },
 
         {
-            word: "happy",
-            meanings: ["행복한", "기쁜"]
+            word: "beautiful",
+            meanings: ["아름다운", "예쁜"]
         },
 
         {
@@ -1076,13 +1488,13 @@ const vocabulary = {
         },
 
         {
-            word: "food",
-            meanings: ["음식"]
+            word: "happy",
+            meanings: ["행복한", "기쁜"]
         },
 
         {
-            word: "beautiful",
-            meanings: ["아름다운", "예쁜"]
+            word: "morning",
+            meanings: ["아침"]
         }
 
     ],
@@ -1093,11 +1505,6 @@ const vocabulary = {
         {
             word: "achieve",
             meanings: ["성취하다", "달성하다"]
-        },
-
-        {
-            word: "environment",
-            meanings: ["환경"]
         },
 
         {
@@ -1117,12 +1524,12 @@ const vocabulary = {
 
         {
             word: "communicate",
-            meanings: ["의사소통하다", "소통하다"]
+            meanings: ["소통하다", "의사소통하다"]
         },
 
         {
             word: "responsible",
-            meanings: ["책임이 있는", "책임감 있는"]
+            meanings: ["책임감 있는", "책임이 있는"]
         },
 
         {
@@ -1138,6 +1545,11 @@ const vocabulary = {
         {
             word: "reduce",
             meanings: ["줄이다", "감소시키다"]
+        },
+
+        {
+            word: "environment",
+            meanings: ["환경"]
         }
 
     ],
@@ -1147,12 +1559,21 @@ const vocabulary = {
 
         {
             word: "significant",
-            meanings: ["중요한", "상당한", "의미 있는"]
+            meanings: [
+                "중요한",
+                "상당한",
+                "의미 있는",
+                "의미있는"
+            ]
         },
 
         {
             word: "inevitable",
-            meanings: ["불가피한", "피할 수 없는"]
+            meanings: [
+                "불가피한",
+                "피할 수 없는",
+                "피할수없는"
+            ]
         },
 
         {
@@ -1182,12 +1603,20 @@ const vocabulary = {
 
         {
             word: "demonstrate",
-            meanings: ["보여주다", "입증하다", "증명하다"]
+            meanings: [
+                "보여주다",
+                "입증하다",
+                "증명하다"
+            ]
         },
 
         {
             word: "fundamental",
-            meanings: ["근본적인", "기본적인", "핵심적인"]
+            meanings: [
+                "근본적인",
+                "기본적인",
+                "핵심적인"
+            ]
         },
 
         {
@@ -1200,9 +1629,43 @@ const vocabulary = {
 };
 
 
-/* =====================================
+/* =========================
+   MAKEUP TOOLS
+========================= */
+
+const makeupTools = [
+
+    {
+        icon: "🧴",
+        name: "Foundation"
+    },
+
+    {
+        icon: "✏️",
+        name: "Eyebrow Pencil"
+    },
+
+    {
+        icon: "🎨",
+        name: "Eyeshadow"
+    },
+
+    {
+        icon: "🌸",
+        name: "Blush"
+    },
+
+    {
+        icon: "💄",
+        name: "Lipstick"
+    }
+
+];
+
+
+/* =========================
    VARIABLES
-===================================== */
+========================= */
 
 let currentLevel = "";
 
@@ -1212,12 +1675,14 @@ let currentQuestion = 0;
 
 let score = 0;
 
+let answered = false;
 
-/* =====================================
+
+/* =========================
    SCREEN CONTROL
-===================================== */
+========================= */
 
-function showScreen(screenId) {
+function showScreen(id) {
 
     document
         .querySelectorAll(".screen")
@@ -1229,7 +1694,7 @@ function showScreen(screenId) {
 
 
     document
-        .getElementById(screenId)
+        .getElementById(id)
         .classList.add("active");
 
 
@@ -1241,9 +1706,9 @@ function showScreen(screenId) {
 }
 
 
-/* =====================================
+/* =========================
    START QUIZ
-===================================== */
+========================= */
 
 function startQuiz(level) {
 
@@ -1253,24 +1718,45 @@ function startQuiz(level) {
 
     score = 0;
 
+    answered = false;
 
-    const shuffled = shuffleArray(
-        [...vocabulary[level]]
-    );
+
+    const shuffled =
+        shuffleArray(
+            [...vocabulary[level]]
+        );
 
 
     quizWords =
         shuffled.slice(0, 5);
 
 
+    resetTools();
+
+    updateGirl(0);
+
+
     document
-        .getElementById("levelDisplay")
+        .getElementById(
+            "girlPanel"
+        )
+        .classList.add(
+            "visible"
+        );
+
+
+    document
+        .getElementById(
+            "levelDisplay"
+        )
         .textContent =
         "Level: " +
         capitalize(level);
 
 
-    showScreen("quizScreen");
+    showScreen(
+        "quizScreen"
+    );
 
 
     showQuestion();
@@ -1278,9 +1764,9 @@ function startQuiz(level) {
 }
 
 
-/* =====================================
+/* =========================
    SHUFFLE
-===================================== */
+========================= */
 
 function shuffleArray(array) {
 
@@ -1307,29 +1793,39 @@ function shuffleArray(array) {
 
     }
 
+
     return array;
 
 }
 
 
-/* =====================================
+/* =========================
    SHOW QUESTION
-===================================== */
+========================= */
 
 function showQuestion() {
 
-    const question =
-        quizWords[currentQuestion];
+    answered = false;
+
+
+    const item =
+        quizWords[
+            currentQuestion
+        ];
 
 
     document
-        .getElementById("questionWord")
+        .getElementById(
+            "questionWord"
+        )
         .textContent =
-        question.word;
+        item.word;
 
 
     document
-        .getElementById("questionNumber")
+        .getElementById(
+            "questionNumber"
+        )
         .textContent =
         "Question " +
         (currentQuestion + 1) +
@@ -1337,21 +1833,27 @@ function showQuestion() {
 
 
     document
-        .getElementById("scoreDisplay")
+        .getElementById(
+            "scoreDisplay"
+        )
         .textContent =
-        "Score: " +
-        score;
+        "Makeup Tools: " +
+        score +
+        " / 5";
 
 
     document
-        .getElementById("progress")
+        .getElementById(
+            "progressBar"
+        )
         .style.width =
         (
-            (currentQuestion + 1) /
-            5 *
-            100
+            (currentQuestion + 1)
+            / 5
+            * 100
         )
-        + "%";
+        +
+        "%";
 
 
     const input =
@@ -1376,7 +1878,17 @@ function showQuestion() {
     feedback.className =
         "feedback";
 
-    feedback.textContent = "";
+    feedback.innerHTML = "";
+
+
+    const reward =
+        document.getElementById(
+            "reward"
+        );
+
+
+    reward.className =
+        "reward";
 
 
     document
@@ -1397,9 +1909,9 @@ function showQuestion() {
 }
 
 
-/* =====================================
-   NORMALIZE
-===================================== */
+/* =========================
+   NORMALIZE ANSWER
+========================= */
 
 function normalize(text) {
 
@@ -1411,29 +1923,61 @@ function normalize(text) {
 }
 
 
-/* =====================================
+/* =========================
    CHECK ANSWER
-===================================== */
+========================= */
 
 function checkAnswer() {
 
+    if (answered) {
+        return;
+    }
+
+
     const input =
-        document
-        .getElementById(
+        document.getElementById(
             "answerInput"
         );
 
 
     const userAnswer =
-        normalize(input.value);
+        normalize(
+            input.value
+        );
 
 
-    const question =
-        quizWords[currentQuestion];
+    if (userAnswer === "") {
+
+        const feedback =
+            document.getElementById(
+                "feedback"
+            );
 
 
-    const correctAnswers =
-        question.meanings.map(
+        feedback.className =
+            "feedback incorrect";
+
+
+        feedback.textContent =
+            "답을 먼저 입력해주세요.";
+
+
+        return;
+
+    }
+
+
+    answered = true;
+
+
+    const item =
+        quizWords[
+            currentQuestion
+        ];
+
+
+    const acceptedAnswers =
+        item.meanings.map(
             function(meaning) {
 
                 return normalize(
@@ -1450,35 +1994,28 @@ function checkAnswer() {
         );
 
 
-    if (userAnswer === "") {
-
-        feedback.className =
-            "feedback incorrect";
-
-        feedback.textContent =
-            "답을 먼저 입력해주세요.";
-
-        return;
-
-    }
-
-
     if (
-        correctAnswers.includes(
+        acceptedAnswers.includes(
             userAnswer
         )
     ) {
 
-        score++;
-
         feedback.className =
             "feedback correct";
 
+
         feedback.innerHTML =
+
             "✓ Correct! <strong>" +
-            question.word +
+
+            item.word +
+
             "</strong> = " +
-            question.meanings.join(", ");
+
+            item.meanings.join(", ");
+
+
+        unlockTool();
 
     }
 
@@ -1487,26 +2024,25 @@ function checkAnswer() {
         feedback.className =
             "feedback incorrect";
 
+
         feedback.innerHTML =
+
             "✗ Not quite! <strong>" +
-            question.word +
+
+            item.word +
+
             "</strong> means <strong>" +
-            question.meanings.join(", ") +
-            "</strong>.";
+
+            item.meanings.join(", ") +
+
+            "</strong>.<br>" +
+
+            "No makeup tool this time.";
 
     }
 
 
     input.disabled = true;
-
-
-    document
-        .getElementById(
-            "scoreDisplay"
-        )
-        .textContent =
-        "Score: " +
-        score;
 
 
     document
@@ -1517,36 +2053,165 @@ function checkAnswer() {
         "none";
 
 
-    const nextButton =
+    const next =
         document.getElementById(
             "nextButton"
         );
 
 
-    nextButton.style.display =
+    next.style.display =
         "block";
 
 
-    if (currentQuestion === 4) {
+    if (
+        currentQuestion === 4
+    ) {
 
-        nextButton.textContent =
-            "See Mission Result →";
+        next.textContent =
+            "See Mina's Final Look →";
 
     }
 
     else {
 
-        nextButton.textContent =
-            "Next Question →";
+        next.textContent =
+            "Next Word →";
 
     }
 
 }
 
 
-/* =====================================
-   NEXT
-===================================== */
+/* =========================
+   UNLOCK TOOL
+========================= */
+
+function unlockTool() {
+
+    const tool =
+        makeupTools[score];
+
+
+    const toolBadge =
+        document.getElementById(
+            "tool" + score
+        );
+
+
+    if (toolBadge) {
+
+        toolBadge
+            .classList
+            .add(
+                "unlocked"
+            );
+
+    }
+
+
+    score++;
+
+
+    document
+        .getElementById(
+            "rewardIcon"
+        )
+        .textContent =
+        tool.icon;
+
+
+    document
+        .getElementById(
+            "rewardName"
+        )
+        .textContent =
+        tool.name;
+
+
+    document
+        .getElementById(
+            "reward"
+        )
+        .classList
+        .add(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "scoreDisplay"
+        )
+        .textContent =
+        "Makeup Tools: " +
+        score +
+        " / 5";
+
+
+    updateGirl(
+        score
+    );
+
+}
+
+
+/* =========================
+   UPDATE GIRL
+========================= */
+
+function updateGirl(stage) {
+
+    const girl =
+        document.getElementById(
+            "girl"
+        );
+
+
+    girl.className =
+        "girl";
+
+
+    if (stage > 0) {
+
+        girl.classList.add(
+            "makeup-" + stage
+        );
+
+    }
+
+
+    const status =
+        document.getElementById(
+            "girlStatus"
+        );
+
+
+    const statusMessages = [
+
+        "No makeup tools yet!",
+
+        "Foundation complete ✨",
+
+        "Brows are ready ✏️",
+
+        "Eyeshadow added 🎨",
+
+        "Blush added 🌸",
+
+        "Full makeup complete! 💄"
+
+    ];
+
+
+    status.textContent =
+        statusMessages[stage];
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
 
 function nextQuestion() {
 
@@ -1562,18 +2227,27 @@ function nextQuestion() {
 
     else {
 
-        showResults();
+        showResult();
 
     }
 
 }
 
 
-/* =====================================
-   RESULTS
-===================================== */
+/* =========================
+   SHOW RESULT
+========================= */
 
-function showResults() {
+function showResult() {
+
+    document
+        .getElementById(
+            "girlPanel"
+        )
+        .classList.remove(
+            "visible"
+        );
+
 
     document
         .getElementById(
@@ -1583,40 +2257,102 @@ function showResults() {
         score;
 
 
-    const success =
+    const resultTitle =
         document.getElementById(
-            "successResult"
+            "resultTitle"
         );
 
 
-    const fail =
+    const description =
         document.getElementById(
-            "failResult"
+            "resultDescription"
         );
 
 
-    if (score >= 4) {
+    const finalGirl =
+        document.getElementById(
+            "finalGirl"
+        );
 
-        success.style.display =
-            "block";
 
-        fail.style.display =
-            "none";
+    finalGirl.className =
+        "girl";
+
+
+    if (score > 0) {
+
+        finalGirl.classList.add(
+            "makeup-" +
+            score
+        );
+
+    }
+
+
+    if (score === 5) {
+
+        resultTitle.className =
+            "result-title-success";
+
+
+        resultTitle.innerHTML =
+            "✨ Full Makeup Complete! ✨";
+
+
+        description.innerHTML =
+
+            "You got <strong>all five words correct!</strong>" +
+
+            "<br>" +
+
+            "Mina found every makeup tool and is completely ready to go." +
+
+            "<br><br>" +
+
+            "💖 <strong>Perfect Vocabulary Mission!</strong>";
+
+
+        createConfetti();
 
     }
 
     else {
 
-        success.style.display =
-            "none";
+        finalGirl.classList.add(
+            "messy"
+        );
 
-        fail.style.display =
-            "block";
+
+        resultTitle.className =
+            "result-title-fail";
+
+
+        resultTitle.innerHTML =
+            "😵‍💫 Almost Ready...";
+
+
+        description.innerHTML =
+
+            "You found <strong>" +
+
+            score +
+
+            " out of 5</strong> makeup tools." +
+
+            "<br>" +
+
+            "Mina had to finish getting ready with the tools she had," +
+
+            " so her makeup is a little unfinished." +
+
+            "<br><br>" +
+
+            "Try again and help Mina complete her full makeup!";
 
     }
 
 
-    createReview();
+    createFinalToolMessage();
 
 
     showScreen(
@@ -1626,58 +2362,90 @@ function showResults() {
 }
 
 
-/* =====================================
-   REVIEW
-===================================== */
+/* =========================
+   FINAL TOOL MESSAGE
+========================= */
 
-function createReview() {
+function createFinalToolMessage() {
 
     const area =
         document.getElementById(
-            "reviewArea"
+            "finalToolMessage"
         );
 
 
-    area.innerHTML = "";
+    if (score === 0) {
+
+        area.innerHTML =
+            "👜 No makeup tools collected.";
+
+        return;
+
+    }
 
 
-    quizWords.forEach(
-        function(item) {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
+    let html =
+        "<strong>Tools collected:</strong><br><br>";
 
 
-            div.className =
-                "review-item";
+    for (
+        let i = 0;
+        i < score;
+        i++
+    ) {
+
+        html +=
+            makeupTools[i].icon +
+            " " +
+            makeupTools[i].name;
 
 
-            div.innerHTML =
+        if (
+            i < score - 1
+        ) {
 
-                '<span class="review-word">' +
-
-                item.word +
-
-                "</span> → " +
-
-                item.meanings.join(", ");
-
-
-            area.appendChild(
-                div
-            );
+            html += " · ";
 
         }
-    );
+
+    }
+
+
+    area.innerHTML =
+        html;
 
 }
 
 
-/* =====================================
+/* =========================
+   RESET TOOLS
+========================= */
+
+function resetTools() {
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        document
+            .getElementById(
+                "tool" + i
+            )
+            .classList
+            .remove(
+                "unlocked"
+            );
+
+    }
+
+}
+
+
+/* =========================
    RESTART
-===================================== */
+========================= */
 
 function restartSameLevel() {
 
@@ -1688,13 +2456,27 @@ function restartSameLevel() {
 }
 
 
-/* =====================================
-   NEW LEVEL
-===================================== */
+/* =========================
+   CHOOSE LEVEL
+========================= */
 
-function chooseNewLevel() {
+function chooseLevel() {
 
-    resetTreasure();
+    score = 0;
+
+    currentQuestion = 0;
+
+    resetTools();
+
+
+    document
+        .getElementById(
+            "girlPanel"
+        )
+        .classList.remove(
+            "visible"
+        );
+
 
     showScreen(
         "levelScreen"
@@ -1703,114 +2485,34 @@ function chooseNewLevel() {
 }
 
 
-/* =====================================
-   GO TO TREASURE
-===================================== */
+/* =========================
+   ENTER KEY
+========================= */
 
-function goToTreasure() {
+document
+    .getElementById(
+        "answerInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
 
-    resetTreasure();
+            if (
+                event.key === "Enter" &&
+                !this.disabled
+            ) {
 
-    showScreen(
-        "treasureScreen"
+                checkAnswer();
+
+            }
+
+        }
     );
 
-}
 
-
-/* =====================================
-   OPEN TREASURE
-===================================== */
-
-function openTreasureChest() {
-
-    const chest =
-        document.getElementById(
-            "finalChest"
-        );
-
-
-    const lock =
-        document.getElementById(
-            "finalLock"
-        );
-
-
-    const treasure =
-        document.getElementById(
-            "treasureContent"
-        );
-
-
-    const congratulations =
-        document.getElementById(
-            "congratulations"
-        );
-
-
-    const message =
-        document.getElementById(
-            "finalMessage"
-        );
-
-
-    const openButton =
-        document.getElementById(
-            "openChestButton"
-        );
-
-
-    const playAgain =
-        document.getElementById(
-            "playAgainButton"
-        );
-
-
-    lock.textContent =
-        "🗝️";
-
-
-    setTimeout(function() {
-
-        chest.classList.add(
-            "open"
-        );
-
-        lock.textContent =
-            "✨";
-
-    }, 400);
-
-
-    setTimeout(function() {
-
-        treasure.style.display =
-            "block";
-
-        congratulations.style.display =
-            "block";
-
-        message.style.display =
-            "block";
-
-        createConfetti();
-
-    }, 1100);
-
-
-    openButton.style.display =
-        "none";
-
-
-    playAgain.style.display =
-        "block";
-
-}
-
-
-/* =====================================
+/* =========================
    CONFETTI
-===================================== */
+========================= */
 
 function createConfetti() {
 
@@ -1822,16 +2524,16 @@ function createConfetti() {
 
     const symbols = [
         "✨",
-        "⭐",
-        "🪙",
-        "💎",
-        "🎉"
+        "💖",
+        "🌸",
+        "💄",
+        "⭐"
     ];
 
 
     for (
         let i = 0;
-        i < 35;
+        i < 40;
         i++
     ) {
 
@@ -1862,17 +2564,16 @@ function createConfetti() {
 
         item.style.animationDelay =
             Math.random() *
-            1.2 +
+            1 +
             "s";
 
 
         item.style.animationDuration =
             (
-                2.2 +
+                2.5 +
                 Math.random() *
                 2
-            )
-            +
+            ) +
             "s";
 
 
@@ -1881,119 +2582,34 @@ function createConfetti() {
         );
 
 
-        setTimeout(function() {
+        setTimeout(
+            function() {
 
-            item.remove();
+                item.remove();
 
-        }, 5000);
+            },
+
+            5000
+
+        );
 
     }
 
 }
 
 
-/* =====================================
-   RESET TREASURE
-===================================== */
-
-function resetTreasure() {
-
-    const chest =
-        document.getElementById(
-            "finalChest"
-        );
-
-
-    chest.classList.remove(
-        "open"
-    );
-
-
-    document
-        .getElementById(
-            "finalLock"
-        )
-        .textContent =
-        "🔒";
-
-
-    document
-        .getElementById(
-            "treasureContent"
-        )
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById(
-            "congratulations"
-        )
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById(
-            "finalMessage"
-        )
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById(
-            "openChestButton"
-        )
-        .style.display =
-        "block";
-
-
-    document
-        .getElementById(
-            "playAgainButton"
-        )
-        .style.display =
-        "none";
-
-}
-
-
-/* =====================================
-   ENTER KEY
-===================================== */
-
-document
-    .getElementById(
-        "answerInput"
-    )
-    .addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter" &&
-                !this.disabled
-            ) {
-
-                checkAnswer();
-
-            }
-
-        }
-    );
-
-
-/* =====================================
+/* =========================
    CAPITALIZE
-===================================== */
+========================= */
 
-function capitalize(word) {
+function capitalize(text) {
 
     return (
-        word.charAt(0).toUpperCase()
+        text
+            .charAt(0)
+            .toUpperCase()
         +
-        word.slice(1)
+        text.slice(1)
     );
 
 }
