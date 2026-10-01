@@ -8,9 +8,9 @@
 
 <style>
 
-/* =========================
+/* =========================================================
    GLOBAL
-========================= */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -19,15 +19,21 @@
 :root {
     --pink: #f18ba8;
     --deep-pink: #d8668a;
-    --soft-pink: #fff0f5;
+    --light-pink: #fff0f5;
     --cream: #fffaf7;
+
     --purple: #876da8;
+    --deep-purple: #6f598f;
+
     --dark: #3d3445;
     --gray: #77717d;
+
     --green: #3c956c;
     --light-green: #e8f8ef;
+
     --red: #ba4b60;
     --light-red: #fff0f2;
+
     --border: #ecdce3;
     --gold: #d8a84d;
 }
@@ -39,6 +45,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -56,15 +63,60 @@ body {
 }
 
 
-/* =========================
-   MAIN LAYOUT
-========================= */
+/* =========================================================
+   TOP SOUND CONTROLS
+========================================================= */
+
+.sound-controls {
+    position: fixed;
+    top: 16px;
+    right: 18px;
+
+    z-index: 200;
+
+    display: flex;
+    gap: 8px;
+}
+
+.sound-button {
+    border: 1px solid #ead8e1;
+
+    background: rgba(255,255,255,.94);
+
+    border-radius: 999px;
+
+    padding: 9px 14px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    color: #a15b74;
+
+    box-shadow:
+        0 5px 18px rgba(105, 73, 87, .13);
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.sound-button:hover {
+    transform: translateY(-2px);
+    background: #fff3f7;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 .app {
     width: 100%;
     max-width: 900px;
+
     margin: 0 auto;
-    padding: 30px 18px 70px;
+
+    padding: 62px 18px 75px;
 }
 
 header {
@@ -74,20 +126,27 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 34px;
+
+    font-size: 36px;
+
     color: #c95f82;
 }
 
 header p {
     margin-top: 8px;
+
     color: var(--gray);
 }
 
 .main-card {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
+
     border: 2px solid #f3dce5;
-    border-radius: 24px;
+
+    border-radius: 26px;
+
     padding: 30px;
+
     box-shadow:
         0 12px 35px rgba(117, 72, 91, 0.12);
 }
@@ -101,16 +160,16 @@ header p {
 }
 
 
-/* =========================
+/* =========================================================
    STORY
-========================= */
+========================================================= */
 
 .story-area {
     text-align: center;
 }
 
 .story-icon {
-    font-size: 65px;
+    font-size: 68px;
 }
 
 .story-area h2 {
@@ -119,89 +178,140 @@ header p {
 
 .story-box {
     background: #fff4f7;
+
     border: 2px dashed #efa9bc;
-    border-radius: 16px;
-    padding: 18px;
-    line-height: 1.8;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    line-height: 1.9;
+
     margin: 20px 0 28px;
 }
 
+.mission-rule {
+    display: inline-block;
 
-/* =========================
-   LEVEL SELECTION
-========================= */
+    margin-top: 10px;
+
+    padding: 7px 13px;
+
+    background: #ffe2ec;
+
+    color: #a94d6c;
+
+    border-radius: 999px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   LEVEL
+========================================================= */
 
 .level-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 15px;
 }
 
 .level-button {
     background: white;
+
     border: 2px solid var(--border);
+
     border-radius: 18px;
-    padding: 22px 13px;
+
+    padding: 23px 13px;
+
     cursor: pointer;
+
     transition: 0.2s;
 }
 
 .level-button:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+
     border-color: var(--pink);
+
     background: #fff6f9;
+
+    box-shadow:
+        0 7px 18px rgba(184, 93, 124, .12);
 }
 
 .level-icon {
-    font-size: 36px;
+    font-size: 38px;
 }
 
 .level-name {
     margin-top: 7px;
+
     font-size: 18px;
     font-weight: 800;
+
     color: #bd6381;
 }
 
 .level-description {
     margin-top: 6px;
+
     color: #777;
+
     font-size: 13px;
 }
 
 
-/* =========================
+/* =========================================================
    QUIZ
-========================= */
+========================================================= */
 
 .quiz-top {
     display: flex;
+
     flex-wrap: wrap;
+
     justify-content: space-between;
+
     gap: 8px;
+
     margin-bottom: 14px;
 }
 
 .badge {
     padding: 6px 12px;
+
     background: #fff0f5;
+
     color: #ad5675;
+
     border-radius: 999px;
+
     font-size: 14px;
     font-weight: 700;
 }
 
 .progress-background {
     height: 11px;
+
     background: #f1e3e9;
+
     border-radius: 999px;
+
     overflow: hidden;
+
     margin-bottom: 28px;
 }
 
 .progress-bar {
     width: 20%;
     height: 100%;
+
     background:
         linear-gradient(
             90deg,
@@ -214,35 +324,103 @@ header p {
 
 .question-number {
     text-align: center;
+
     color: #8a7d86;
+
     font-size: 14px;
 }
 
+.word-area {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 13px 0 5px;
+}
+
 .question-word {
-    text-align: center;
     color: #98609f;
-    font-size: 46px;
+
+    font-size: 48px;
+
     font-weight: 900;
-    margin: 12px 0;
+}
+
+.speak-button {
+    border: none;
+
+    border-radius: 50%;
+
+    width: 48px;
+    height: 48px;
+
+    background: #f2e9ff;
+
+    color: #725792;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    box-shadow:
+        0 4px 12px rgba(111, 89, 143, .15);
+}
+
+.speak-button:hover {
+    transform: scale(1.08);
+    background: #e8d8fb;
+}
+
+.listen-label {
+    text-align: center;
+
+    color: #9b8795;
+
+    font-size: 12px;
+
+    margin-bottom: 17px;
 }
 
 .question-text {
     text-align: center;
-    margin-bottom: 22px;
+
+    margin-bottom: 21px;
+
+    line-height: 1.7;
 }
 
 .answer-input {
     width: 100%;
+
     padding: 15px;
+
     border-radius: 13px;
+
     border: 2px solid #e9d6df;
+
     outline: none;
+
     font-size: 17px;
 }
 
 .answer-input:focus {
     border-color: var(--pink);
+
+    box-shadow:
+        0 0 0 3px rgba(241, 139, 168, .12);
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 button {
     font-family: inherit;
@@ -250,173 +428,246 @@ button {
 
 .main-button {
     width: 100%;
+
     border: none;
+
     border-radius: 13px;
+
     padding: 14px;
+
     margin-top: 14px;
+
     background: var(--deep-pink);
+
     color: white;
+
     font-size: 16px;
     font-weight: 800;
+
     cursor: pointer;
+
     transition: .2s;
 }
 
 .main-button:hover {
     background: #c75379;
+
     transform: translateY(-1px);
 }
 
 .next-button {
     display: none;
+
     width: 100%;
+
     border: none;
+
     border-radius: 13px;
+
     padding: 14px;
+
     margin-top: 14px;
+
     background: #826ca5;
+
     color: white;
+
     font-size: 16px;
+
     font-weight: 800;
+
     cursor: pointer;
 }
 
 .secondary-button {
     width: 100%;
+
     border: none;
+
     border-radius: 13px;
+
     padding: 13px;
+
     margin-top: 11px;
+
     background: #eee8ed;
+
     color: #625561;
+
     font-size: 15px;
+
     font-weight: 700;
+
     cursor: pointer;
 }
 
 
-/* =========================
+/* =========================================================
    FEEDBACK
-========================= */
+========================================================= */
 
 .feedback {
     display: none;
+
     margin-top: 16px;
+
     padding: 14px;
+
     border-radius: 11px;
+
     text-align: center;
+
+    line-height: 1.6;
 }
 
 .feedback.correct {
     display: block;
+
     background: var(--light-green);
+
     color: #246c4a;
 }
 
 .feedback.incorrect {
     display: block;
+
     background: var(--light-red);
+
     color: var(--red);
 }
 
 
-/* =========================
-   TOOL REWARD
-========================= */
+/* =========================================================
+   REWARD
+========================================================= */
 
 .reward {
     display: none;
+
     text-align: center;
+
     margin-top: 17px;
-    padding: 14px;
+
+    padding: 15px;
+
     border-radius: 13px;
+
     background: #fff6d9;
+
     color: #74581b;
+
     border: 1px solid #f0d48e;
 }
 
 .reward.show {
     display: block;
-    animation: rewardPop .45s ease;
+
+    animation:
+        rewardPop .45s ease;
 }
 
 .reward-icon {
-    font-size: 35px;
+    font-size: 38px;
 }
 
 @keyframes rewardPop {
 
     from {
         opacity: 0;
-        transform: scale(.7);
+
+        transform:
+            scale(.7);
     }
 
     to {
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
 
 }
 
 
-/* =========================
-   MAKEUP TOOL COLLECTION
-========================= */
+/* =========================================================
+   TOOL COLLECTION
+========================================================= */
 
 .tool-collection {
     margin-top: 28px;
+
     border-top: 1px solid #eee0e6;
+
     padding-top: 18px;
 }
 
 .tool-collection h3 {
     font-size: 16px;
+
     margin-bottom: 12px;
 }
 
 .tools {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 8px;
 }
 
 .tool {
     background: #f2eef1;
+
     color: #aaa0a6;
+
     border-radius: 999px;
+
     padding: 7px 11px;
+
     font-size: 13px;
+
+    transition: .3s;
 }
 
 .tool.unlocked {
     background: #fff0c7;
+
     color: #765919;
+
     border: 1px solid #e5c66d;
+
+    transform:
+        scale(1.03);
 }
 
 
-/* =========================
+/* =========================================================
    FLOATING GIRL
-========================= */
+========================================================= */
 
 .girl-panel {
     display: none;
 
     position: fixed;
+
     right: 24px;
     bottom: 24px;
 
-    width: 230px;
+    width: 235px;
+
     padding: 14px;
 
     background:
-        rgba(255,255,255,.96);
+        rgba(255,255,255,.97);
 
-    border: 2px solid #f0d8e2;
-    border-radius: 22px;
+    border:
+        2px solid #f0d8e2;
+
+    border-radius: 24px;
 
     box-shadow:
-        0 10px 35px rgba(93, 60, 77, .22);
+        0 10px 35px
+        rgba(93, 60, 77, .22);
 
     z-index: 50;
 
@@ -429,40 +680,58 @@ button {
 
 .girl-title {
     font-size: 13px;
+
     color: #a4677e;
+
     font-weight: 800;
+
     margin-bottom: 4px;
 }
 
 .girl-status {
     font-size: 12px;
+
     color: #7f747b;
+
     margin-bottom: 8px;
 }
 
 
-/* =========================
+/* =========================================================
    GIRL ILLUSTRATION
-========================= */
+========================================================= */
 
 .girl {
     position: relative;
+
     width: 160px;
     height: 195px;
+
     margin: auto;
 }
 
 
-/* HAIR BACK */
+/* BACK HAIR */
 
 .hair-back {
     position: absolute;
+
     left: 17px;
     top: 10px;
+
     width: 126px;
     height: 155px;
-    background: #49312d;
-    border-radius: 65px 65px 48px 48px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #3d2826,
+            #593733
+        );
+
+    border-radius:
+        65px 65px
+        48px 48px;
 }
 
 
@@ -470,11 +739,15 @@ button {
 
 .neck {
     position: absolute;
+
     width: 34px;
     height: 40px;
+
     left: 63px;
     top: 130px;
+
     background: #f3c3ad;
+
     border-radius: 10px;
 }
 
@@ -483,12 +756,23 @@ button {
 
 .body-shape {
     position: absolute;
+
     width: 116px;
     height: 62px;
+
     left: 22px;
     bottom: 0;
-    background: #ecd6ef;
-    border-radius: 55px 55px 12px 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e6c8eb,
+            #d9b7e0
+        );
+
+    border-radius:
+        55px 55px
+        12px 12px;
 }
 
 
@@ -496,8 +780,10 @@ button {
 
 .face {
     position: absolute;
+
     left: 38px;
     top: 29px;
+
     width: 84px;
     height: 111px;
 
@@ -507,7 +793,8 @@ button {
         48% 48% 44% 44% /
         42% 42% 58% 58%;
 
-    transition: .4s;
+    transition: .5s;
+
     z-index: 3;
 }
 
@@ -516,13 +803,26 @@ button {
 
 .fringe {
     position: absolute;
+
     left: 32px;
     top: 11px;
+
     width: 96px;
     height: 58px;
-    background: #49312d;
-    border-radius: 55px 55px 35px 35px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #3c2725,
+            #573633
+        );
+
+    border-radius:
+        55px 55px
+        35px 35px;
+
     z-index: 5;
+
     clip-path:
         polygon(
             0 0,
@@ -542,12 +842,20 @@ button {
 
 .eye {
     position: absolute;
+
     width: 15px;
     height: 8px;
+
     top: 48px;
-    border-bottom: 3px solid #493d3f;
+
+    border-bottom:
+        3px solid #493d3f;
+
     border-radius: 50%;
+
     z-index: 8;
+
+    transition: .4s;
 }
 
 .eye.left {
@@ -563,10 +871,14 @@ button {
 
 .pupil {
     position: absolute;
+
     width: 5px;
     height: 5px;
+
     background: #45383a;
+
     border-radius: 50%;
+
     bottom: -1px;
     left: 5px;
 }
@@ -576,11 +888,17 @@ button {
 
 .eyebrow {
     position: absolute;
+
     top: 38px;
+
     width: 19px;
     height: 4px;
+
     border-radius: 100%;
-    background: rgba(75,48,42,.28);
+
+    background:
+        rgba(75,48,42,.28);
+
     transition: .4s;
 }
 
@@ -599,11 +917,17 @@ button {
 
 .eyeshadow {
     position: absolute;
+
     width: 22px;
     height: 10px;
+
     top: 43px;
+
     border-radius: 50%;
-    background: rgba(186,113,165,0);
+
+    background:
+        rgba(186,113,165,0);
+
     transition: .4s;
 }
 
@@ -616,16 +940,58 @@ button {
 }
 
 
+/* EYELASH */
+
+.lash {
+    position: absolute;
+
+    width: 18px;
+    height: 9px;
+
+    top: 46px;
+
+    opacity: 0;
+
+    border-top:
+        2px solid #3d3135;
+
+    transition: .4s;
+
+    z-index: 9;
+}
+
+.lash.left {
+    left: 13px;
+
+    transform:
+        rotate(-4deg);
+}
+
+.lash.right {
+    right: 13px;
+
+    transform:
+        rotate(4deg);
+}
+
+
 /* BLUSH */
 
 .blush {
     position: absolute;
+
     width: 20px;
     height: 11px;
+
     top: 69px;
+
     border-radius: 50%;
-    background: rgba(236,102,132,0);
+
+    background:
+        rgba(236,102,132,0);
+
     filter: blur(2px);
+
     transition: .4s;
 }
 
@@ -642,12 +1008,21 @@ button {
 
 .nose {
     position: absolute;
+
     left: 39px;
     top: 62px;
+
     width: 6px;
     height: 9px;
-    border-right: 2px solid rgba(156,91,72,.35);
-    border-bottom: 2px solid rgba(156,91,72,.25);
+
+    border-right:
+        2px solid
+        rgba(156,91,72,.35);
+
+    border-bottom:
+        2px solid
+        rgba(156,91,72,.25);
+
     border-radius: 50%;
 }
 
@@ -656,12 +1031,18 @@ button {
 
 .lips {
     position: absolute;
+
     left: 31px;
     top: 84px;
+
     width: 23px;
     height: 9px;
+
     background: #bb7776;
-    border-radius: 50% 50% 55% 55%;
+
+    border-radius:
+        50% 50% 55% 55%;
+
     transition: .4s;
 }
 
@@ -670,12 +1051,18 @@ button {
 
 .earring {
     position: absolute;
+
     width: 6px;
     height: 9px;
+
     background: #e7bd49;
+
     border-radius: 50%;
+
     top: 73px;
+
     opacity: 0;
+
     transition: .4s;
 }
 
@@ -688,60 +1075,124 @@ button {
 }
 
 
-/* =========================
-   MAKEUP STAGES
-========================= */
+/* SPARKLES */
 
-/* FOUNDATION */
+.face-sparkle {
+    position: absolute;
+
+    opacity: 0;
+
+    font-size: 10px;
+
+    transition: .4s;
+
+    z-index: 15;
+}
+
+.face-sparkle.one {
+    left: 3px;
+    top: 9px;
+}
+
+.face-sparkle.two {
+    right: 2px;
+    top: 22px;
+}
+
+
+/* =========================================================
+   MAKEUP LEVEL 1
+   FOUNDATION
+========================================================= */
 
 .girl.makeup-1 .face,
 .girl.makeup-2 .face,
 .girl.makeup-3 .face,
 .girl.makeup-4 .face,
 .girl.makeup-5 .face {
-    background: #f6cbb9;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f7d0bd,
+            #f4c6b4
+        );
+
     box-shadow:
-        inset 0 0 15px rgba(255,255,255,.25);
+        inset 0 0 15px
+        rgba(255,255,255,.28);
 }
 
 
-/* BROWS */
+/* =========================================================
+   MAKEUP LEVEL 2
+   EYEBROWS
+========================================================= */
 
 .girl.makeup-2 .eyebrow,
 .girl.makeup-3 .eyebrow,
 .girl.makeup-4 .eyebrow,
 .girl.makeup-5 .eyebrow {
-    background: #5b3732;
+
+    background: #593630;
+
     height: 5px;
 }
 
 
-/* EYESHADOW */
+/* =========================================================
+   MAKEUP LEVEL 3
+   EYES
+========================================================= */
 
 .girl.makeup-3 .eyeshadow,
 .girl.makeup-4 .eyeshadow,
 .girl.makeup-5 .eyeshadow {
+
     background:
         rgba(195,113,173,.45);
 }
 
+.girl.makeup-3 .lash,
+.girl.makeup-4 .lash,
+.girl.makeup-5 .lash {
 
-/* BLUSH */
-
-.girl.makeup-4 .blush,
-.girl.makeup-5 .blush {
-    background:
-        rgba(239,102,137,.42);
+    opacity: 1;
 }
 
 
-/* FULL MAKEUP */
+/* =========================================================
+   MAKEUP LEVEL 4
+   BLUSH
+========================================================= */
+
+.girl.makeup-4 .blush,
+.girl.makeup-5 .blush {
+
+    background:
+        rgba(239,102,137,.43);
+}
+
+
+/* =========================================================
+   MAKEUP LEVEL 5
+   FULL MAKEUP
+========================================================= */
 
 .girl.makeup-5 .lips {
-    background: #cc4168;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e4537b,
+            #be315b
+        );
+
     height: 11px;
+
     box-shadow:
-        0 2px 3px rgba(168,44,77,.18);
+        0 2px 3px
+        rgba(168,44,77,.18);
 }
 
 .girl.makeup-5 .eye {
@@ -752,37 +1203,78 @@ button {
     opacity: 1;
 }
 
+.girl.makeup-5 .face-sparkle {
+    opacity: 1;
 
-/* =========================
+    animation:
+        sparkleFace
+        .8s ease-in-out
+        infinite alternate;
+}
+
+@keyframes sparkleFace {
+
+    from {
+        transform:
+            scale(.8);
+    }
+
+    to {
+        transform:
+            scale(1.3);
+    }
+}
+
+
+/* =========================================================
    MESSY ENDING
-========================= */
+========================================================= */
+
+.girl.messy .eyebrow.left {
+    transform:
+        rotate(-14deg)
+        translateY(-2px);
+}
+
+.girl.messy .eyebrow.right {
+    transform:
+        rotate(10deg)
+        translateY(2px);
+}
 
 .girl.messy .eyeshadow.left {
-    transform: rotate(10deg) translateY(2px);
+    transform:
+        rotate(10deg)
+        translateY(2px);
 }
 
 .girl.messy .eyeshadow.right {
-    opacity: .45;
+    transform:
+        rotate(-7deg)
+        translateX(3px);
 }
 
 .girl.messy .blush.left {
-    transform: scale(1.45);
+    transform:
+        scale(1.45);
 }
 
 .girl.messy .blush.right {
-    transform: scale(.75);
+    transform:
+        scale(.7)
+        translateY(4px);
 }
 
 .girl.messy .lips {
     transform:
         rotate(-8deg)
-        translateX(2px);
+        translateX(3px);
 }
 
 
-/* =========================
-   RESULTS
-========================= */
+/* =========================================================
+   RESULT
+========================================================= */
 
 .result {
     text-align: center;
@@ -791,17 +1283,23 @@ button {
 .result-score {
     width: 145px;
     height: 145px;
+
     margin: 24px auto;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
 
     background: #fff0f5;
-    border: 6px solid #e58aa7;
+
+    border:
+        6px solid #e58aa7;
 
     color: #ab5874;
 }
@@ -811,8 +1309,10 @@ button {
 }
 
 .final-girl-wrapper {
-    width: 275px;
-    min-height: 300px;
+    width: 290px;
+
+    min-height: 315px;
+
     margin: 20px auto;
 
     background:
@@ -822,21 +1322,33 @@ button {
             #f5ecff
         );
 
-    border-radius: 25px;
-    padding: 25px 15px;
+    border-radius: 26px;
 
-    border: 2px solid #edd9e3;
+    padding:
+        25px 15px;
+
+    border:
+        2px solid #edd9e3;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 .final-girl-wrapper .girl {
-    transform: scale(1.35);
-    transform-origin: top center;
-    margin-bottom: 60px;
+    transform:
+        scale(1.4);
+
+    transform-origin:
+        top center;
+
+    margin-bottom: 67px;
 }
 
 .result-title-success {
     color: #cc5b80;
-    font-size: 28px;
+
+    font-size: 29px;
 }
 
 .result-title-fail {
@@ -845,25 +1357,61 @@ button {
 
 .result-description {
     color: #70636d;
-    line-height: 1.7;
+
+    line-height: 1.8;
 }
 
 
-/* CONFETTI */
+/* FINAL GLOW */
+
+.success-glow {
+    animation:
+        glow 1.2s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes glow {
+
+    from {
+        box-shadow:
+            0 0 15px
+            rgba(242,147,180,.25);
+    }
+
+    to {
+        box-shadow:
+            0 0 40px
+            rgba(242,147,180,.65);
+    }
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
 
 .confetti-container {
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
+
     overflow: hidden;
-    z-index: 100;
+
+    z-index: 300;
 }
 
 .confetti {
     position: absolute;
+
     top: -30px;
+
     font-size: 22px;
-    animation: fall 3.5s linear forwards;
+
+    animation:
+        fall 3.5s linear forwards;
 }
 
 @keyframes fall {
@@ -879,9 +1427,9 @@ button {
 }
 
 
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 720px) {
 
@@ -890,15 +1438,21 @@ button {
     }
 
     .girl-panel {
-        right: 8px;
-        bottom: 8px;
-        width: 165px;
+        right: 7px;
+        bottom: 7px;
+
+        width: 166px;
+
         padding: 8px;
     }
 
     .girl-panel .girl {
-        transform: scale(.78);
-        transform-origin: top center;
+        transform:
+            scale(.78);
+
+        transform-origin:
+            top center;
+
         margin-bottom: -40px;
     }
 
@@ -911,11 +1465,23 @@ button {
     }
 
     .question-word {
-        font-size: 38px;
+        font-size: 39px;
     }
 
     header h1 {
-        font-size: 27px;
+        font-size: 28px;
+    }
+
+    .sound-controls {
+        top: 8px;
+        right: 8px;
+    }
+
+    .sound-button {
+        padding:
+            8px 10px;
+
+        font-size: 11px;
     }
 }
 
@@ -925,15 +1491,38 @@ button {
 
 <body>
 
+
+<!-- =========================================================
+     SOUND CONTROLS
+========================================================= -->
+
+<div class="sound-controls">
+
+    <button
+        class="sound-button"
+        id="musicButton"
+        onclick="toggleMusic()">
+
+        🎵 Music: On
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     CONFETTI
+========================================================= -->
+
 <div
     class="confetti-container"
     id="confettiContainer">
 </div>
 
 
-<!-- =========================
-     FLOATING CHARACTER
-========================= -->
+<!-- =========================================================
+     FLOATING GIRL
+========================================================= -->
 
 <div
     class="girl-panel"
@@ -970,6 +1559,9 @@ button {
             <div class="eyeshadow left"></div>
             <div class="eyeshadow right"></div>
 
+            <div class="lash left"></div>
+            <div class="lash right"></div>
+
             <div class="eye left">
                 <div class="pupil"></div>
             </div>
@@ -988,6 +1580,14 @@ button {
             <div class="earring left"></div>
             <div class="earring right"></div>
 
+            <div class="face-sparkle one">
+                ✨
+            </div>
+
+            <div class="face-sparkle two">
+                ✦
+            </div>
+
         </div>
 
         <div class="fringe"></div>
@@ -997,11 +1597,12 @@ button {
 </div>
 
 
-<!-- =========================
-     MAIN APP
-========================= -->
+<!-- =========================================================
+     APP
+========================================================= -->
 
 <div class="app">
+
 
 <header>
 
@@ -1019,19 +1620,21 @@ button {
 <div class="main-card">
 
 
-<!-- =========================
+<!-- =========================================================
      LEVEL SCREEN
-========================= -->
+========================================================= -->
 
 <section
     id="levelScreen"
     class="screen active">
+
 
     <div class="story-area">
 
         <div class="story-icon">
             ⏰💄
         </div>
+
 
         <h2>
             Mina needs to get ready!
@@ -1040,27 +1643,37 @@ button {
 
         <div class="story-box">
 
-            오늘 아침, Mina는 외출 준비를 해야 합니다.
+            오늘 아침 Mina는 약속에 나가기 위해
+            서둘러 준비해야 합니다.
 
             <br><br>
 
-            그런데 문제가 생겼어요!
+            그런데...
 
             <br>
 
             <strong>
-                Mina의 메이크업 도구가 모두 사라졌습니다.
+                Mina의 메이크업 도구가
+                모두 사라졌어요!
             </strong>
 
             <br><br>
 
-            영어 단어 문제를 하나 맞힐 때마다
-            메이크업 도구를 하나씩 얻을 수 있습니다.
+            영어 단어의 뜻을 맞히면
+            메이크업 도구를
+            하나씩 되찾을 수 있습니다.
 
             <br><br>
 
-            총 <strong>5개의 단어</strong>를 모두 맞히면
-            Mina의 풀메이크업이 완성됩니다!
+            단어를 맞힐 때마다
+            오른쪽 아래의 Mina가
+            조금씩 꾸며지는 모습을 확인해보세요.
+
+            <br>
+
+            <span class="mission-rule">
+                🎯 Mission: 5 Words → 5 Makeup Tools
+            </span>
 
         </div>
 
@@ -1069,8 +1682,10 @@ button {
             Choose Your English Level
         </h2>
 
+
         <p>
-            자신의 영어 실력에 맞는 난이도를 선택하세요.
+            자신의 영어 실력에 맞는
+            난이도를 선택하세요.
         </p>
 
     </div>
@@ -1092,7 +1707,7 @@ button {
             </div>
 
             <div class="level-description">
-                기본적인 일상 어휘
+                기본적인 일상 영어 단어
             </div>
 
         </button>
@@ -1130,7 +1745,7 @@ button {
             </div>
 
             <div class="level-description">
-                학습 및 추상적 어휘
+                학습 및 추상적인 고급 어휘
             </div>
 
         </button>
@@ -1141,9 +1756,9 @@ button {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      QUIZ SCREEN
-========================= -->
+========================================================= -->
 
 <section
     id="quizScreen"
@@ -1187,18 +1802,41 @@ button {
     </div>
 
 
-    <div
-        class="question-word"
-        id="questionWord">
+    <div class="word-area">
 
-        apple
+        <div
+            class="question-word"
+            id="questionWord">
+
+            apple
+
+        </div>
+
+
+        <button
+            class="speak-button"
+            onclick="speakCurrentWord()"
+            title="Hear this word">
+
+            🔊
+
+        </button>
+
+    </div>
+
+
+    <div class="listen-label">
+
+        🔊 Press the speaker to hear the word.
 
     </div>
 
 
     <div class="question-text">
 
-        What does this word mean in Korean?
+        <strong>
+            What does this word mean in Korean?
+        </strong>
 
         <br>
 
@@ -1232,6 +1870,7 @@ button {
             class="reward-icon"
             id="rewardIcon">
         </div>
+
 
         <strong
             id="rewardName">
@@ -1272,7 +1911,9 @@ button {
             👜 Mina's Makeup Bag
         </h3>
 
+
         <div class="tools">
+
 
             <span
                 class="tool"
@@ -1282,6 +1923,7 @@ button {
 
             </span>
 
+
             <span
                 class="tool"
                 id="tool1">
@@ -1289,6 +1931,7 @@ button {
                 ✏️ Eyebrow Pencil
 
             </span>
+
 
             <span
                 class="tool"
@@ -1298,6 +1941,7 @@ button {
 
             </span>
 
+
             <span
                 class="tool"
                 id="tool3">
@@ -1305,6 +1949,7 @@ button {
                 🌸 Blush
 
             </span>
+
 
             <span
                 class="tool"
@@ -1314,6 +1959,7 @@ button {
 
             </span>
 
+
         </div>
 
     </div>
@@ -1321,24 +1967,23 @@ button {
 </section>
 
 
-<!-- =========================
-     RESULT SCREEN
-========================= -->
+<!-- =========================================================
+     RESULT
+========================================================= -->
 
 <section
     id="resultScreen"
     class="screen">
 
+
     <div class="result">
 
-        <div
-            class="result-score">
+
+        <div class="result-score">
 
             <strong
                 id="finalScore">
-
                 0
-
             </strong>
 
             <span>
@@ -1359,17 +2004,22 @@ button {
         </p>
 
 
-        <div class="final-girl-wrapper">
+        <div
+            class="final-girl-wrapper"
+            id="finalGirlWrapper">
+
 
             <div
                 class="girl"
                 id="finalGirl">
+
 
                 <div class="hair-back"></div>
 
                 <div class="neck"></div>
 
                 <div class="body-shape"></div>
+
 
                 <div class="face">
 
@@ -1378,6 +2028,9 @@ button {
 
                     <div class="eyeshadow left"></div>
                     <div class="eyeshadow right"></div>
+
+                    <div class="lash left"></div>
+                    <div class="lash right"></div>
 
                     <div class="eye left">
                         <div class="pupil"></div>
@@ -1397,7 +2050,16 @@ button {
                     <div class="earring left"></div>
                     <div class="earring right"></div>
 
+                    <div class="face-sparkle one">
+                        ✨
+                    </div>
+
+                    <div class="face-sparkle two">
+                        ✦
+                    </div>
+
                 </div>
+
 
                 <div class="fringe"></div>
 
@@ -1428,6 +2090,7 @@ button {
 
         </button>
 
+
     </div>
 
 </section>
@@ -1439,9 +2102,9 @@ button {
 
 <script>
 
-/* =========================
-   VOCABULARY
-========================= */
+/* =========================================================
+   VOCABULARY DATA
+========================================================= */
 
 const vocabulary = {
 
@@ -1593,7 +2256,10 @@ const vocabulary = {
 
         {
             word: "controversial",
-            meanings: ["논란이 되는", "논쟁적인"]
+            meanings: [
+                "논란이 되는",
+                "논쟁적인"
+            ]
         },
 
         {
@@ -1629,9 +2295,9 @@ const vocabulary = {
 };
 
 
-/* =========================
-   MAKEUP TOOLS
-========================= */
+/* =========================================================
+   MAKEUP TOOL DATA
+========================================================= */
 
 const makeupTools = [
 
@@ -1663,9 +2329,9 @@ const makeupTools = [
 ];
 
 
-/* =========================
+/* =========================================================
    VARIABLES
-========================= */
+========================================================= */
 
 let currentLevel = "";
 
@@ -1678,24 +2344,472 @@ let score = 0;
 let answered = false;
 
 
-/* =========================
-   SCREEN CONTROL
-========================= */
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function speakCurrentWord() {
+
+    if (
+        !quizWords ||
+        quizWords.length === 0
+    ) {
+        return;
+    }
+
+
+    const word =
+        quizWords[currentQuestion].word;
+
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            word
+        );
+
+
+    utterance.lang =
+        "en-US";
+
+
+    utterance.rate =
+        0.82;
+
+
+    utterance.pitch =
+        1;
+
+
+    utterance.volume =
+        1;
+
+
+    /*
+    Try to choose a natural English voice
+    if the browser provides one.
+    */
+
+    const voices =
+        window.speechSynthesis
+            .getVoices();
+
+
+    const englishVoice =
+        voices.find(
+            function(voice) {
+
+                return (
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("en-us")
+                );
+
+            }
+        ) ||
+        voices.find(
+            function(voice) {
+
+                return (
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("en")
+                );
+
+            }
+        );
+
+
+    if (englishVoice) {
+
+        utterance.voice =
+            englishVoice;
+
+    }
+
+
+    window.speechSynthesis
+        .speak(
+            utterance
+        );
+
+}
+
+
+/* Load browser voices */
+
+if (
+    "speechSynthesis"
+    in window
+) {
+
+    window.speechSynthesis
+        .onvoiceschanged =
+        function() {
+
+            window.speechSynthesis
+                .getVoices();
+
+        };
+
+}
+
+
+/* =========================================================
+   BACKGROUND MUSIC
+   Self-contained music generated using Web Audio API.
+========================================================= */
+
+let audioContext = null;
+
+let musicMaster = null;
+
+let musicPlaying = false;
+
+let musicLoopTimer = null;
+
+let musicStep = 0;
+
+
+/*
+Soft "morning / makeup room"
+chord progression.
+
+Each chord contains frequencies,
+so there is no external audio file.
+*/
+
+const musicChords = [
+
+    [261.63, 329.63, 392.00],
+    [220.00, 261.63, 329.63],
+    [174.61, 220.00, 261.63],
+    [196.00, 246.94, 293.66]
+
+];
+
+
+function initializeMusic() {
+
+    if (audioContext) {
+        return;
+    }
+
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+
+    if (!AudioContext) {
+
+        document
+            .getElementById(
+                "musicButton"
+            )
+            .textContent =
+            "🎵 Music unavailable";
+
+        return;
+
+    }
+
+
+    audioContext =
+        new AudioContext();
+
+
+    musicMaster =
+        audioContext
+            .createGain();
+
+
+    musicMaster.gain.value =
+        0.055;
+
+
+    musicMaster.connect(
+        audioContext.destination
+    );
+
+}
+
+
+function playSoftTone(
+    frequency,
+    startTime,
+    duration
+) {
+
+    if (
+        !audioContext ||
+        !musicMaster
+    ) {
+        return;
+    }
+
+
+    const oscillator =
+        audioContext
+            .createOscillator();
+
+
+    const gain =
+        audioContext
+            .createGain();
+
+
+    oscillator.type =
+        "sine";
+
+
+    oscillator.frequency.value =
+        frequency;
+
+
+    gain.gain.setValueAtTime(
+        0,
+        startTime
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+        0.18,
+        startTime + 0.25
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+        0.05,
+        startTime + duration - 0.3
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+        0,
+        startTime + duration
+    );
+
+
+    oscillator.connect(
+        gain
+    );
+
+
+    gain.connect(
+        musicMaster
+    );
+
+
+    oscillator.start(
+        startTime
+    );
+
+
+    oscillator.stop(
+        startTime + duration
+    );
+
+}
+
+
+function playMusicChord() {
+
+    if (
+        !musicPlaying ||
+        !audioContext
+    ) {
+        return;
+    }
+
+
+    const chord =
+        musicChords[
+            musicStep %
+            musicChords.length
+        ];
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    chord.forEach(
+        function(frequency, index) {
+
+            playSoftTone(
+                frequency,
+                now + index * 0.06,
+                2.8
+            );
+
+        }
+    );
+
+
+    /*
+    Add one soft high note
+    for a cute sparkle effect.
+    */
+
+    const highNote =
+        chord[1] * 2;
+
+
+    playSoftTone(
+        highNote,
+        now + 1.25,
+        1.15
+    );
+
+
+    musicStep++;
+
+}
+
+
+function startMusic() {
+
+    initializeMusic();
+
+
+    if (!audioContext) {
+        return;
+    }
+
+
+    if (
+        audioContext.state ===
+        "suspended"
+    ) {
+
+        audioContext.resume();
+
+    }
+
+
+    if (musicPlaying) {
+        return;
+    }
+
+
+    musicPlaying =
+        true;
+
+
+    updateMusicButton();
+
+
+    playMusicChord();
+
+
+    musicLoopTimer =
+        setInterval(
+            function() {
+
+                playMusicChord();
+
+            },
+            3000
+        );
+
+}
+
+
+function stopMusic() {
+
+    musicPlaying =
+        false;
+
+
+    if (musicLoopTimer) {
+
+        clearInterval(
+            musicLoopTimer
+        );
+
+
+        musicLoopTimer =
+            null;
+
+    }
+
+
+    updateMusicButton();
+
+}
+
+
+function toggleMusic() {
+
+    if (musicPlaying) {
+
+        stopMusic();
+
+    }
+
+    else {
+
+        startMusic();
+
+    }
+
+}
+
+
+function updateMusicButton() {
+
+    const button =
+        document.getElementById(
+            "musicButton"
+        );
+
+
+    if (musicPlaying) {
+
+        button.textContent =
+            "🎵 Music: On";
+
+    }
+
+    else {
+
+        button.textContent =
+            "🔇 Music: Off";
+
+    }
+
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
 
 function showScreen(id) {
 
     document
         .querySelectorAll(".screen")
-        .forEach(function(screen) {
+        .forEach(
+            function(screen) {
 
-            screen.classList.remove("active");
+                screen.classList
+                    .remove(
+                        "active"
+                    );
 
-        });
+            }
+        );
 
 
     document
         .getElementById(id)
-        .classList.add("active");
+        .classList
+        .add(
+            "active"
+        );
 
 
     window.scrollTo({
@@ -1706,19 +2820,39 @@ function showScreen(id) {
 }
 
 
-/* =========================
+/* =========================================================
    START QUIZ
-========================= */
+========================================================= */
 
 function startQuiz(level) {
 
-    currentLevel = level;
+    /*
+    Starting the music here means the browser
+    has already received a real user click,
+    so Chrome allows sound playback.
+    */
 
-    currentQuestion = 0;
+    if (!musicPlaying) {
 
-    score = 0;
+        startMusic();
 
-    answered = false;
+    }
+
+
+    currentLevel =
+        level;
+
+
+    currentQuestion =
+        0;
+
+
+    score =
+        0;
+
+
+    answered =
+        false;
 
 
     const shuffled =
@@ -1728,19 +2862,26 @@ function startQuiz(level) {
 
 
     quizWords =
-        shuffled.slice(0, 5);
+        shuffled.slice(
+            0,
+            5
+        );
 
 
     resetTools();
 
-    updateGirl(0);
+
+    updateGirl(
+        0
+    );
 
 
     document
         .getElementById(
             "girlPanel"
         )
-        .classList.add(
+        .classList
+        .add(
             "visible"
         );
 
@@ -1764,15 +2905,18 @@ function startQuiz(level) {
 }
 
 
-/* =========================
+/* =========================================================
    SHUFFLE
-========================= */
+========================================================= */
 
 function shuffleArray(array) {
 
     for (
-        let i = array.length - 1;
+        let i =
+            array.length - 1;
+
         i > 0;
+
         i--
     ) {
 
@@ -1786,7 +2930,8 @@ function shuffleArray(array) {
         [
             array[i],
             array[j]
-        ] = [
+        ] =
+        [
             array[j],
             array[i]
         ];
@@ -1799,13 +2944,14 @@ function shuffleArray(array) {
 }
 
 
-/* =========================
+/* =========================================================
    SHOW QUESTION
-========================= */
+========================================================= */
 
 function showQuestion() {
 
-    answered = false;
+    answered =
+        false;
 
 
     const item =
@@ -1849,10 +2995,11 @@ function showQuestion() {
         .style.width =
         (
             (currentQuestion + 1)
-            / 5
-            * 100
-        )
-        +
+            /
+            5
+            *
+            100
+        ) +
         "%";
 
 
@@ -1862,9 +3009,13 @@ function showQuestion() {
         );
 
 
-    input.value = "";
+    input.value =
+        "";
 
-    input.disabled = false;
+
+    input.disabled =
+        false;
+
 
     input.focus();
 
@@ -1878,7 +3029,9 @@ function showQuestion() {
     feedback.className =
         "feedback";
 
-    feedback.innerHTML = "";
+
+    feedback.innerHTML =
+        "";
 
 
     const reward =
@@ -1909,23 +3062,26 @@ function showQuestion() {
 }
 
 
-/* =========================
+/* =========================================================
    NORMALIZE ANSWER
-========================= */
+========================================================= */
 
 function normalize(text) {
 
     return text
         .trim()
         .toLowerCase()
-        .replace(/\s+/g, "");
+        .replace(
+            /\s+/g,
+            ""
+        );
 
 }
 
 
-/* =========================
+/* =========================================================
    CHECK ANSWER
-========================= */
+========================================================= */
 
 function checkAnswer() {
 
@@ -1946,7 +3102,9 @@ function checkAnswer() {
         );
 
 
-    if (userAnswer === "") {
+    if (
+        userAnswer === ""
+    ) {
 
         const feedback =
             document.getElementById(
@@ -1967,7 +3125,8 @@ function checkAnswer() {
     }
 
 
-    answered = true;
+    answered =
+        true;
 
 
     const item =
@@ -2017,6 +3176,9 @@ function checkAnswer() {
 
         unlockTool();
 
+
+        playCorrectSound();
+
     }
 
     else {
@@ -2039,10 +3201,14 @@ function checkAnswer() {
 
             "No makeup tool this time.";
 
+
+        playWrongSound();
+
     }
 
 
-    input.disabled = true;
+    input.disabled =
+        true;
 
 
     document
@@ -2082,19 +3248,93 @@ function checkAnswer() {
 }
 
 
-/* =========================
-   UNLOCK TOOL
-========================= */
+/* =========================================================
+   CORRECT / WRONG SOUND
+========================================================= */
+
+function playCorrectSound() {
+
+    initializeMusic();
+
+
+    if (!audioContext) {
+        return;
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    playSoftTone(
+        659.25,
+        now,
+        .35
+    );
+
+
+    playSoftTone(
+        783.99,
+        now + .12,
+        .35
+    );
+
+
+    playSoftTone(
+        1046.50,
+        now + .25,
+        .5
+    );
+
+}
+
+
+function playWrongSound() {
+
+    initializeMusic();
+
+
+    if (!audioContext) {
+        return;
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    playSoftTone(
+        220,
+        now,
+        .3
+    );
+
+
+    playSoftTone(
+        196,
+        now + .18,
+        .45
+    );
+
+}
+
+
+/* =========================================================
+   UNLOCK MAKEUP TOOL
+========================================================= */
 
 function unlockTool() {
 
     const tool =
-        makeupTools[score];
+        makeupTools[
+            score
+        ];
 
 
     const toolBadge =
         document.getElementById(
-            "tool" + score
+            "tool" +
+            score
         );
 
 
@@ -2155,9 +3395,9 @@ function unlockTool() {
 }
 
 
-/* =========================
+/* =========================================================
    UPDATE GIRL
-========================= */
+========================================================= */
 
 function updateGirl(stage) {
 
@@ -2171,11 +3411,15 @@ function updateGirl(stage) {
         "girl";
 
 
-    if (stage > 0) {
+    if (
+        stage > 0
+    ) {
 
-        girl.classList.add(
-            "makeup-" + stage
-        );
+        girl.classList
+            .add(
+                "makeup-" +
+                stage
+            );
 
     }
 
@@ -2186,32 +3430,32 @@ function updateGirl(stage) {
         );
 
 
-    const statusMessages = [
+    const messages = [
 
-        "No makeup tools yet!",
+        "No makeup tools yet 😢",
 
         "Foundation complete ✨",
 
         "Brows are ready ✏️",
 
-        "Eyeshadow added 🎨",
+        "Eye makeup complete 🎨",
 
         "Blush added 🌸",
 
-        "Full makeup complete! 💄"
+        "Full makeup complete! 💄✨"
 
     ];
 
 
     status.textContent =
-        statusMessages[stage];
+        messages[stage];
 
 }
 
 
-/* =========================
+/* =========================================================
    NEXT QUESTION
-========================= */
+========================================================= */
 
 function nextQuestion() {
 
@@ -2220,6 +3464,7 @@ function nextQuestion() {
     ) {
 
         currentQuestion++;
+
 
         showQuestion();
 
@@ -2234,17 +3479,21 @@ function nextQuestion() {
 }
 
 
-/* =========================
-   SHOW RESULT
-========================= */
+/* =========================================================
+   RESULT
+========================================================= */
 
 function showResult() {
+
+    window.speechSynthesis.cancel();
+
 
     document
         .getElementById(
             "girlPanel"
         )
-        .classList.remove(
+        .classList
+        .remove(
             "visible"
         );
 
@@ -2257,7 +3506,7 @@ function showResult() {
         score;
 
 
-    const resultTitle =
+    const title =
         document.getElementById(
             "resultTitle"
         );
@@ -2275,59 +3524,86 @@ function showResult() {
         );
 
 
+    const wrapper =
+        document.getElementById(
+            "finalGirlWrapper"
+        );
+
+
     finalGirl.className =
         "girl";
 
 
-    if (score > 0) {
+    wrapper.classList.remove(
+        "success-glow"
+    );
 
-        finalGirl.classList.add(
-            "makeup-" +
-            score
-        );
+
+    if (
+        score > 0
+    ) {
+
+        finalGirl
+            .classList
+            .add(
+                "makeup-" +
+                score
+            );
 
     }
 
 
-    if (score === 5) {
+    if (
+        score === 5
+    ) {
 
-        resultTitle.className =
+        title.className =
             "result-title-success";
 
 
-        resultTitle.innerHTML =
+        title.innerHTML =
             "✨ Full Makeup Complete! ✨";
 
 
         description.innerHTML =
 
-            "You got <strong>all five words correct!</strong>" +
+            "Perfect! You got <strong>all five words correct.</strong>" +
 
             "<br>" +
 
-            "Mina found every makeup tool and is completely ready to go." +
+            "Mina found every makeup tool and finished her full makeup!" +
 
             "<br><br>" +
 
-            "💖 <strong>Perfect Vocabulary Mission!</strong>";
+            "💖 <strong>She is completely ready to go!</strong>";
+
+
+        wrapper.classList.add(
+            "success-glow"
+        );
 
 
         createConfetti();
+
+
+        playVictorySound();
 
     }
 
     else {
 
-        finalGirl.classList.add(
-            "messy"
-        );
+        finalGirl
+            .classList
+            .add(
+                "messy"
+            );
 
 
-        resultTitle.className =
+        title.className =
             "result-title-fail";
 
 
-        resultTitle.innerHTML =
+        title.innerHTML =
             "😵‍💫 Almost Ready...";
 
 
@@ -2341,13 +3617,13 @@ function showResult() {
 
             "<br>" +
 
-            "Mina had to finish getting ready with the tools she had," +
+            "Mina had to finish her makeup with only the tools she collected," +
 
-            " so her makeup is a little unfinished." +
+            " so the final look is a little unfinished." +
 
             "<br><br>" +
 
-            "Try again and help Mina complete her full makeup!";
+            "Try the vocabulary mission again and complete her full makeup!";
 
     }
 
@@ -2362,9 +3638,50 @@ function showResult() {
 }
 
 
-/* =========================
+/* =========================================================
+   VICTORY SOUND
+========================================================= */
+
+function playVictorySound() {
+
+    initializeMusic();
+
+
+    if (!audioContext) {
+        return;
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    const notes = [
+        523.25,
+        659.25,
+        783.99,
+        1046.50
+    ];
+
+
+    notes.forEach(
+        function(note, index) {
+
+            playSoftTone(
+                note,
+                now + index * .16,
+                .75
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    FINAL TOOL MESSAGE
-========================= */
+========================================================= */
 
 function createFinalToolMessage() {
 
@@ -2374,7 +3691,9 @@ function createFinalToolMessage() {
         );
 
 
-    if (score === 0) {
+    if (
+        score === 0
+    ) {
 
         area.innerHTML =
             "👜 No makeup tools collected.";
@@ -2385,18 +3704,24 @@ function createFinalToolMessage() {
 
 
     let html =
-        "<strong>Tools collected:</strong><br><br>";
+
+        "<strong>Makeup tools collected:</strong><br><br>";
 
 
     for (
         let i = 0;
+
         i < score;
+
         i++
     ) {
 
         html +=
+
             makeupTools[i].icon +
+
             " " +
+
             makeupTools[i].name;
 
 
@@ -2404,7 +3729,8 @@ function createFinalToolMessage() {
             i < score - 1
         ) {
 
-            html += " · ";
+            html +=
+                " · ";
 
         }
 
@@ -2417,15 +3743,17 @@ function createFinalToolMessage() {
 }
 
 
-/* =========================
+/* =========================================================
    RESET TOOLS
-========================= */
+========================================================= */
 
 function resetTools() {
 
     for (
         let i = 0;
+
         i < 5;
+
         i++
     ) {
 
@@ -2443,9 +3771,9 @@ function resetTools() {
 }
 
 
-/* =========================
+/* =========================================================
    RESTART
-========================= */
+========================================================= */
 
 function restartSameLevel() {
 
@@ -2456,24 +3784,33 @@ function restartSameLevel() {
 }
 
 
-/* =========================
+/* =========================================================
    CHOOSE LEVEL
-========================= */
+========================================================= */
 
 function chooseLevel() {
 
-    score = 0;
+    score =
+        0;
 
-    currentQuestion = 0;
+
+    currentQuestion =
+        0;
+
 
     resetTools();
+
+
+    window.speechSynthesis
+        .cancel();
 
 
     document
         .getElementById(
             "girlPanel"
         )
-        .classList.remove(
+        .classList
+        .remove(
             "visible"
         );
 
@@ -2485,9 +3822,9 @@ function chooseLevel() {
 }
 
 
-/* =========================
+/* =========================================================
    ENTER KEY
-========================= */
+========================================================= */
 
 document
     .getElementById(
@@ -2498,7 +3835,9 @@ document
         function(event) {
 
             if (
-                event.key === "Enter" &&
+                event.key ===
+                "Enter"
+                &&
                 !this.disabled
             ) {
 
@@ -2510,9 +3849,9 @@ document
     );
 
 
-/* =========================
+/* =========================================================
    CONFETTI
-========================= */
+========================================================= */
 
 function createConfetti() {
 
@@ -2523,17 +3862,22 @@ function createConfetti() {
 
 
     const symbols = [
+
         "✨",
         "💖",
         "🌸",
         "💄",
-        "⭐"
+        "⭐",
+        "🎀"
+
     ];
 
 
     for (
         let i = 0;
-        i < 40;
+
+        i < 45;
+
         i++
     ) {
 
@@ -2588,9 +3932,7 @@ function createConfetti() {
                 item.remove();
 
             },
-
             5000
-
         );
 
     }
@@ -2598,9 +3940,9 @@ function createConfetti() {
 }
 
 
-/* =========================
+/* =========================================================
    CAPITALIZE
-========================= */
+========================================================= */
 
 function capitalize(text) {
 
